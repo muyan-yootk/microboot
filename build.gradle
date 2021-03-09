@@ -40,6 +40,14 @@ subprojects {   // 子模块
     }
     dependencies {  // 公共依赖库管理
         compile('org.springframework.boot:spring-boot-devtools') // 允许进行项目的热部署
+        testImplementation('org.springframework.boot:spring-boot-starter-test') { // 此时默认会引入JUnit4组件
+            exclude group: 'junit', module: 'junit' // 移除旧版本的测试工具
+        }
+        testImplementation(enforcedPlatform(libraries.'junit-bom')) // 将当前的项目强制性的绑定为JUnit5运行
+        testImplementation(libraries.'junit-jupiter-api')
+        testImplementation(libraries.'junit-vintage-engine')
+        testImplementation(libraries.'junit-jupiter-engine')
+        testImplementation(libraries.'junit-platform-launcher')
     }
     sourceSets {    // 源代码目录配置
         main { // main及相关子目录配置
