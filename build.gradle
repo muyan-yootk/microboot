@@ -39,8 +39,7 @@ subprojects {   // 子模块
         maven { url ALIYUN_JCENTER_URL } // 设置阿里云仓库
     }
     dependencies {  // 公共依赖库管理
-//        compile(
-//        )
+        compile('org.springframework.boot:spring-boot-devtools') // 允许进行项目的热部署
     }
     sourceSets {    // 源代码目录配置
         main { // main及相关子目录配置
