@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--  依据Spring的配置要求配置指定的程序Bean对象（向Spring容器之中注册Bean）  -->
+    <bean id="messageService" class="com.yootk.service.impl.MessageServiceImpl"/>
+</beans>
