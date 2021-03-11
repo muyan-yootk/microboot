@@ -102,9 +102,10 @@ subprojects {   // 子模块
 project('microboot-web') { // 子模块
     dependencies { // 配置子模块依赖
         compile(project(':microboot-common')) // 引入其他子模块
-        compile('org.springframework.boot:spring-boot-starter-web') // 引入SpringBoot依赖
     }
 }
 project('microboot-common') { // 子模块
-    dependencies {} // 配置子模块依赖
+    dependencies { // 配置子模块依赖
+        compile('org.springframework.boot:spring-boot-starter-web') // 引入SpringBoot依赖
+    }
 }
