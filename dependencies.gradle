@@ -4,6 +4,7 @@ ext.versions = [    // 定义所有要使用的版本号
         junitPlatformLauncher              :'1.7.1',  // JUnit测试工具运行平台版本编号
         lombok                             :'1.18.18', // Lombok插件对应的版本号
         fastjson                           : '1.2.75', // FastJSON组件对应的版本号
+        jackson                            : '2.12.2', // 配置Jackson相关依赖库
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -17,5 +18,9 @@ ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为Lombok组件有关的依赖
         'lombok': "org.projectlombok:lombok:${versions.lombok}",
         // 以下的配置为FastJSON组件有关的依赖
-        'fastjson': "com.alibaba:fastjson:${versions.fastjson}"
+        'fastjson': "com.alibaba:fastjson:${versions.fastjson}",
+        // 以下的配置为Jackson将输出转换为XML有关的依赖
+        'jackson-dataformat-xml': "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${versions.jackson}",
+        'jackson-databind': "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}",
+        'jackson-annotations': "com.fasterxml.jackson.core:jackson-annotations:${versions.jackson}",
 ]
