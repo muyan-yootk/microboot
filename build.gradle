@@ -1,7 +1,7 @@
 buildscript { 						// 定义脚本使用资源
     apply from: 'dependencies.gradle' // 引入所需要的依赖库文件
     repositories { 						// 脚本资源仓库
-        maven { url 'https://repo.spring.io/libs-milestone' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
     dependencies { 						// 依赖库
         classpath libraries.'spring-boot-gradle-plugin'
@@ -102,6 +102,8 @@ subprojects {   // 子模块
 project('microboot-web') { // 子模块
     dependencies { // 配置子模块依赖
         compile(project(':microboot-common')) // 引入其他子模块
+        compile(libraries.'fastjson') // 引入FastJSON组件
+
     }
 }
 project('microboot-common') { // 子模块
