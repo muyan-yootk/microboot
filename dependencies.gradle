@@ -1,11 +1,12 @@
 ext.versions = [    // 定义所有要使用的版本号
-        springboot                           :'2.4.3', // SpringBoot版本号
-        junit                               :'5.7.1', // 配置JUnit测试工具的版本编号
-        junitPlatformLauncher               :'1.7.1',  // JUnit测试工具运行平台版本编号
-        lombok                              :'1.18.18', // Lombok插件对应的版本号
+        springboot                          : '2.4.3', // SpringBoot版本号
+        junit                               : '5.7.1', // 配置JUnit测试工具的版本编号
+        junitPlatformLauncher               : '1.7.1',  // JUnit测试工具运行平台版本编号
+        lombok                              : '1.18.18', // Lombok插件对应的版本号
         fastjson                            : '1.2.75', // FastJSON组件对应的版本号
         jackson                             : '2.12.2', // 配置Jackson相关依赖库
         itextpdf                            : '5.5.13.2', // PDF文件生成的依赖库
+        easypoi                             : '4.3.0', // 生成Excel处理的依赖库
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -26,4 +27,6 @@ ext.libraries = [   // 定义所有的依赖库
         'jackson-annotations': "com.fasterxml.jackson.core:jackson-annotations:${versions.jackson}",
         // 以下的配置为ITextPDF输出的有关依赖配置
         'itextpdf': "com.itextpdf:itextpdf:${versions.itextpdf}",
+        // 以下的配置为生成Excel文件有关的依赖配置
+        'easypoi-spring-boot-starter': "cn.afterturn:easypoi-spring-boot-starter:${versions.easypoi}"
 ]
