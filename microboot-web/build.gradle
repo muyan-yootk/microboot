@@ -9,6 +9,14 @@ repositories {
     mavenCentral()
 }
 
+bootJar {  // 是由SpringBoot提供的任务名称
+    // 如果开发者有需要也可以自定一些打包后的配置项，例如：后缀、版本号、执行类
+    archiveClassifier = 'lee' // 打包文件追加一个后缀
+    archiveBaseName = 'yootkboot' // 设置打包文件的名称
+    archiveVersion = project_version // 使用项目版本作为打包版本
+//    mainClassName = 'com.yootk.StartSpringBootApplication' // 程序启动类
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
