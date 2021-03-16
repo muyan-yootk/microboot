@@ -1,0 +1,5 @@
+source:   # 是一个自定义的KEY名称
+  mysql: mysql://localhost:3306/yootk   # 自定义的信息（KEY = source.mysql、value = 内容）
+  redis: redis://localhost:6379/0     # 自定义配置信息
+  messages: 沐言科技：www.yootk.com,李兴华高薪就业编程训练营：edu.yootk.com
+  infos: "{'yootk': 'www.yootk.com', 'teacher': '李兴华'}" # Map集合
