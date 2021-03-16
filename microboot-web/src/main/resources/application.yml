@@ -1,5 +1,12 @@
-source:   # 是一个自定义的KEY名称
-  mysql: mysql://localhost:3306/yootk   # 自定义的信息（KEY = source.mysql、value = 内容）
-  redis: redis://localhost:6379/0     # 自定义配置信息
-  messages: 沐言科技：www.yootk.com,李兴华高薪就业编程训练营：edu.yootk.com
-  infos: "{'yootk': 'www.yootk.com', 'teacher': '李兴华'}" # Map集合
+muyan: # 这是一个开始的KEY标记
+  mysql: mysql://localhost:3306/yootk
+  redis: redis://localhost:6379/0
+  messages: # 在Spring里面List和数组是对等的关系
+    - 沐言科技：www.yootk.com
+    - 李兴华高薪就业编程训练营：edu.yootk.com
+  books: # Map的形式进行的配置
+    javaBase: 《Java面向对象就业编程实战》
+    javaApplication: 《Java应用技术就业编程实战》
+    javaWEB: 《JavaWEB就业编程实战》
+    springBoot: 《SpringBoot就业编程实战》
+    springCloud: 《SpringCloud就业编程实战》
