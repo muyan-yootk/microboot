@@ -1,0 +1,4 @@
+server:
+  port: 80 # 服务的运行端口
+  servlet:
+    context-path: /muyan # 上下文路径名称
