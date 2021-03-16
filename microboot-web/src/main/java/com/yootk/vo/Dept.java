@@ -1,12 +1,17 @@
 package com.yootk.vo;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
-@Data // 本身不会生成构造（默认的无参构造）
-@Accessors(chain = true)
+import java.util.List;
+
+@Data
+@ConfigurationProperties(prefix = "object")
+@Component
 public class Dept {
     private Long deptno;
     private String dname;
-    private String loc;
+    private Company company; // 关联结构
+    private List<Emp> emps;
 }

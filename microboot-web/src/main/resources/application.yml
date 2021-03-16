@@ -1,12 +1,18 @@
-muyan: # 这是一个开始的KEY标记
-  mysql: mysql://localhost:3306/yootk
-  redis: redis://localhost:6379/0
-  messages: # 在Spring里面List和数组是对等的关系
-    - 沐言科技：www.yootk.com
-    - 李兴华高薪就业编程训练营：edu.yootk.com
-  books: # Map的形式进行的配置
-    javaBase: 《Java面向对象就业编程实战》
-    javaApplication: 《Java应用技术就业编程实战》
-    javaWEB: 《JavaWEB就业编程实战》
-    springBoot: 《SpringBoot就业编程实战》
-    springCloud: 《SpringCloud就业编程实战》
+object: # 配置的前缀
+  deptno: 10
+  dname: 教学研发部
+  company: # 关联的其他类的引用
+    cid: 1009
+    cname: 沐言科技
+  emps[0]:
+    empno: 7369
+    ename: Smith
+    job: 办事员
+  emps[1]:
+    empno: 7566
+    ename: Allen
+    job: 部门经理
+  emps[2]:
+    empno: 7839
+    ename: king
+    job: 董事长
