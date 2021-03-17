@@ -1,0 +1,4 @@
+server:
+  port: 8282
+  servlet:
+    context-path: /product
