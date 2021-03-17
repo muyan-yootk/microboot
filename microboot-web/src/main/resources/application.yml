@@ -1,27 +1,5 @@
-spring:
-  profiles:
-    active: test # 指的就是后缀名称
-
----
-spring:
-  profiles: dev
 server:
-  port: 9090
+  port: 80
   servlet:
-    context-path: /dev
-
----
-spring:
-  profiles: test
-server:
-  port: 9191
-  servlet:
-    context-path: /test
-
----
-spring:
-  profiles: product
-server:
-  port: 9292
-  servlet:
-    context-path: /product
+    context-parameters:
+      teacher: 李兴华（爆可爱的小李老师）
