@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Data
-@PropertySource(value = "classpath:muyan.properties", encoding = "UTF-8")
-@ConfigurationProperties(prefix = "object")
-@Component
 public class Dept {
     private Long deptno;
     private String dname;

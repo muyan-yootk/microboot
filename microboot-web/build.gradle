@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'war' // 当前的项目具备有打包为war文件的支持
 }
 
 group 'com.yootk'
