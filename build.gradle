@@ -111,6 +111,6 @@ project('microboot-common') { // 子模块
         compile('org.springframework.boot:spring-boot-starter-web') { // 引入SpringBoot依赖
             exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
         }
-        compile('org.springframework.boot:spring-boot-starter-jetty')
+        compile('org.springframework.boot:spring-boot-starter-undertow')
     }
 }
