@@ -3,3 +3,6 @@ server:
   servlet:
     context-parameters:
       teacher: 李兴华（爆可爱的小李老师）
+spring:
+  messages:
+    basename: i18n/Message # 定义资源的BaseName
