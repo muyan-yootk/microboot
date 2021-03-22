@@ -1,8 +1,10 @@
 server:
   port: 80
-  servlet:
-    context-parameters:
-      teacher: 李兴华（爆可爱的小李老师）
 spring:
-  messages:
-    basename: i18n/Message # 定义资源的BaseName
+  servlet:
+    multipart: # 实现文件上传的相关配置
+      enabled: true # 启用文件上传支持（默认就是启用状态）
+      max-file-size: 10MB # 支持单个文件上传最大长度
+      max-request-size: 20MB # 每次请求允许上传的总长度
+      file-size-threshold: 512KB # 每当达到512KB的时候进行磁盘写入
+      location: / # 临时存储目录
