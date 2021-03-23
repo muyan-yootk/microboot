@@ -102,8 +102,7 @@ subprojects {   // 子模块
 project('microboot-web') { // 子模块
     dependencies { // 配置子模块依赖
         compile(project(':microboot-common')) // 引入其他子模块
-        compile(libraries.'itextpdf') // 引入PDF相关依赖
-        compile(libraries.'easypoi-spring-boot-starter') // 引入EasyPOI组件
+        compile('org.springframework.boot:spring-boot-starter-aop') // 引入AOP依赖库
     }
 }
 project('microboot-common') { // 子模块
