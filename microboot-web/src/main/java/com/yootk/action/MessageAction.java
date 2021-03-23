@@ -15,4 +15,5 @@ public class MessageAction extends AbstractBaseAction { // 控制层的实现类
         return message;
     }
 }
-// localhost:8080/message/echo?title=沐言科技&content=www.yootk.com&pubdate=1998-09-19
+// http://localhost/message/echo?title=沐言科技&content=www.yootk.com&pubdate=1998-09-19
+// https://localhost/message/echo?title=沐言科技&content=www.yootk.com&pubdate=1998-09-19
