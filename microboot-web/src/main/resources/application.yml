@@ -1,7 +1,2 @@
 server:
-  port: 443 # https访问端口一定是443
-  ssl: # 所有的证书都是在容器中配置
-    key-store: classpath:keystore.p12 # 配置证书的路径
-    key-alias: yootkServer # 证书别名
-    key-store-type: PKCS12 # P12证书格式
-    key-store-password: yootkjava
+  port: 80

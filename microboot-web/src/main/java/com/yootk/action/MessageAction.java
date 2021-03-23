@@ -14,6 +14,10 @@ public class MessageAction extends AbstractBaseAction { // 控制层的实现类
         message.setContent("【ECHO】" + message.getContent());
         return message;
     }
+    @RequestMapping("calc")
+    public Object calc(int x, int y) {
+        return x / y;
+    }
 }
 // http://localhost/message/echo?title=沐言科技&content=www.yootk.com&pubdate=1998-09-19
 // https://localhost/message/echo?title=沐言科技&content=www.yootk.com&pubdate=1998-09-19
