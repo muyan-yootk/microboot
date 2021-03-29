@@ -1,5 +1,6 @@
 package com.yootk.vo;
 
+import com.yootk.common.validation.annotation.RegexValidator; // 自定义的验证规则
 import lombok.Data;
 
 import javax.validation.constraints.Digits;
@@ -20,4 +21,7 @@ public class Message {
     private String email;
     @Digits(integer = 1, fraction = 0, message = "{message.level.digits.error}") // 1位整数，0位小数
     private Integer level; // 消息级别
+    @NotBlank(message = "{message.flag.notblank.error}")
+    @RegexValidator(pattern = "[a-zA-Z]{1,5}-\\d{1,3}")
+    private String flag; // 追加字段，例如：yootk-101
 }
