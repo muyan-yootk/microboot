@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.yootk'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {    // 源代码目录配置
+    main { // main及相关子目录配置
+        java { srcDirs = ['src/main/java'] }
+        resources { srcDirs = ['src/main/resources', "src/main/view"] } // 追加一个新的源代码目录
+    }
+    test { // test及相关子目录配置
+        java { srcDirs = ['src/test/java'] }
+        resources { srcDirs = ['src/test/resources'] }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
