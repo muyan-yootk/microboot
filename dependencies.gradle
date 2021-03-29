@@ -7,6 +7,7 @@ ext.versions = [    // 定义所有要使用的版本号
         jackson                             : '2.12.2', // 配置Jackson相关依赖库
         itextpdf                            : '5.5.13.2', // PDF文件生成的依赖库
         easypoi                             : '4.3.0', // 生成Excel处理的依赖库
+        hibernateValidator                  : '6.2.0.Final', // JSR303验证库
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -28,5 +29,7 @@ ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为ITextPDF输出的有关依赖配置
         'itextpdf': "com.itextpdf:itextpdf:${versions.itextpdf}",
         // 以下的配置为生成Excel文件有关的依赖配置
-        'easypoi-spring-boot-starter': "cn.afterturn:easypoi-spring-boot-starter:${versions.easypoi}"
+        'easypoi-spring-boot-starter': "cn.afterturn:easypoi-spring-boot-starter:${versions.easypoi}",
+        // 以下的配置为HibernateValidator实现的JSR303验证标准依赖
+        'hibernate-validator': "org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}"
 ]
