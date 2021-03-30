@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">		<!-- 引入命名空间 -->
+<head>
+    <title>Thymeleaf模版渲染</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+<div th:object="${member}">
+    <div th:text="'【Member对象属性】mid：' + *{mid}"/>
+    <div th:text="'【Member对象属性】name：' + *{name}"/>
+    <div th:text="'【Member对象属性】age：' + *{age}"/>
+    <div th:text="'【Member对象属性】salary：' + *{salary}"/>
+    <div th:text="'【Member对象属性】birthday：' + *{birthday}"/>
+    <hr/>
+    <div th:text="'【Thymeleaf格式化】格式化金钱数字，salary = ' + *{#numbers.formatCurrency(salary)}"/>
+    <div th:text="'【Thymeleaf格式化】格式化日期时间，birthday = ' + *{#dates.format(birthday, 'yyyy-MM-dd HH:mm:ss')}"/>
+</div>
+</body>
+</html>
