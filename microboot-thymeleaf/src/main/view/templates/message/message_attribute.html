@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">		<!-- 引入命名空间 -->
+<head>
+    <title>Thymeleaf模版渲染</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:text="'｛REQUEST属性｝message = ' + ${message}"/>
+<div th:text="'｛SESSION属性｝message = ' + ${session.message}"/>
+<div th:text="'｛APPLICATION属性｝message = ' + ${application.message}"/>
+<div th:text="'【request内置对象】远程主机：' + ${#httpServletRequest.getRemoteAddr()}"/>
+<div th:text="'【request内置对象】message属性：' + ${#httpServletRequest.getAttribute('message')}"/>
+<div th:text="'【session内置对象】SessionID：' + ${#httpSession.getId()}"/>
+<div th:text="'【application内置对象】虚拟服务名称：' + ${#httpServletRequest.getServletContext().getVirtualServerName()}"/>
+</body>
+</html>
