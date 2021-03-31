@@ -1,0 +1,8 @@
+<html xmlns:th="http://www.thymeleaf.org">		<!-- 引入命名空间 -->
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<foot th:fragment="companyHeader(title, url)">  <!-- 自定义的原始包含页面中的标签元素 -->
+    <img th:src="@{/images/logo.png}" style="height: 30px;"/>
+    <strong>
+        <span th:text="${title}"/>（<span th:text="${url}"/>）
+    </strong>
+</foot>
