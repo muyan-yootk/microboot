@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">		<!-- 引入命名空间 -->
+<head>
+    <title>Thymeleaf模版渲染</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.css}"/>
+    <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.js}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-striped">
+                <tr>
+                    <td width="10%" class="text-center">No.</td>
+                    <td width="15%" class="text-center">编号</td>
+                    <td width="15%" class="text-center">姓名</td>
+                    <td width="10%" class="text-center">年龄</td>
+                    <td width="15%" class="text-center">月薪</td>
+                    <td width="20%" class="text-center">生日</td>
+                </tr>
+                <tr th:each="member, memberStat : ${memberList}">
+                    <td class="text-center" th:text="${memberStat.index + 1}"/>
+                    <td class="text-center" th:text="${member.mid}"/>
+                    <td class="text-center" th:text="${member.name}"/>
+                    <td class="text-center" th:text="${member.age}"/>
+                    <td class="text-center" th:text="${#numbers.formatCurrency(member.salary)}"/>
+                    <td class="text-center" th:text="${#dates.format(member.birthday, 'yyyy-MM-dd')}"/>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
