@@ -6,14 +6,11 @@
 </head>
 <body>
 <div th:object="${member}">
-    <div th:text="'【Member对象属性】mid：' + *{mid}"/>
-    <div th:text="'【Member对象属性】name：' + *{name}"/>
-    <div th:text="'【Member对象属性】age：' + *{age}"/>
-    <div th:text="'【Member对象属性】salary：' + *{salary}"/>
-    <div th:text="'【Member对象属性】birthday：' + *{birthday}"/>
-    <hr/>
-    <div th:text="'【Thymeleaf格式化】格式化金钱数字，salary = ' + *{#numbers.formatCurrency(salary)}"/>
-    <div th:text="'【Thymeleaf格式化】格式化日期时间，birthday = ' + *{#dates.format(birthday, 'yyyy-MM-dd HH:mm:ss')}"/>
+    <div th:switch="*{mid}">
+        <span th:case="muyan">欢迎“李兴华高薪就业编程训练营“</span>
+        <span th:case="yootk">欢迎访问沐言科技首页</span>
+        <span th:case="*">请认真学习《SpringBoot就业编程实战》，宗旨：白漂到底，自我拯救</span>
+    </div>
 </div>
 </body>
 </html>
