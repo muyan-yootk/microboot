@@ -1,2 +1,8 @@
 server:
   port: 80
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开放全部的微服务监控端口
+      base-path: /actuator # 监控服务的父路径
