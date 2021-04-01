@@ -6,3 +6,12 @@ management:
       exposure:
         include: "*" # 开放全部的微服务监控端口
       base-path: /actuator # 监控服务的父路径
+info:
+  app:
+    name: 沐言科技 —— SpringBoot微服务
+    group: com.yootk
+    version: 2.4.3
+    describe: 基于SpringBoot实现了微服务的定义，用于实现XXOO功能
+    creator:
+      name: 李兴华
+      poistion: 教学总监
