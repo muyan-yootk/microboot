@@ -1,6 +1,10 @@
 server:
   port: 80
 management:
+  endpoint:
+    health:
+      show-details: always # 显示异常信息
+      show-components: always # 显示组件信息
   endpoints:
     web:
       exposure:

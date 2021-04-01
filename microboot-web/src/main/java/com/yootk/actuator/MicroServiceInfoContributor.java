@@ -1,5 +1,7 @@
 package com.yootk.actuator;
 
+import org.springframework.boot.actuate.health.HealthContributor;
+import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.boot.actuate.info.Info;
 import org.springframework.boot.actuate.info.InfoContributor;
 import org.springframework.stereotype.Component;
