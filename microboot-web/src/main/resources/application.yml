@@ -25,12 +25,7 @@ info:
     creator:
       name: 李兴华
       poistion: 教学总监
-#logging:
-#  level: # 需要配置Map集合
-#    root: info # 基本的日志级别
-#    com.yootk.action: trace # 针对于开发包进行的日志级别配置
-#  file: # 定义日志文件
-#    path: muyan-logs # 日志的保存路径
-#  pattern:
-#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%logger] %msg%n" # 文件格式
-#    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%logger] %msg%n" # 控制台格式
+logging:
+  level: # 需要配置Map集合
+    root: info # 基本的日志级别
+    com.yootk.action: warn # 针对于开发包进行的日志级别配置
