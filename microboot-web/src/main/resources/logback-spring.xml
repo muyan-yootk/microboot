@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>logback</contextName>
+    <!-- 定义控制台输出匹配格式 -->
+    <substitutionProperty name="logging.pattern.console"
+                          value="%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%X{requestId}]) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%ewtpc}"/>
+    <!-- 定义日志文件输出匹配格式 -->
+    <substitutionProperty name="logging.pattern.file"
+                          value="%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} %clr([%X{requestId}]) ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%ewtpc}"/>
+
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wtpc" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="ewtpc" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">   <!-- 控制台输出 -->
+        <layout class="ch.qos.logback.classic.PatternLayout"> <!-- 使用layout节点 -->
+            <pattern>${logging.pattern.console}</pattern> <!-- 格式引用 -->
+        </layout>
+    </appender>
+    <!-- 将每天的日志保存在一个文件之中 -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 设置日志保存路径，本次按照月份创建日志目录，而后每天的文件归档到一组 -->
+            <FileNamePattern>muyan-logs/%d{yyyy-MM}/yootk_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>365</MaxHistory><!-- 删除超过365天的日志文件 -->
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level> <!-- 保存ERROR及以上级别的日志 -->
+        </filter>
+        <encoder>
+            <Pattern>${logging.pattern.file}</Pattern>  <!-- 格式引用 -->
+        </encoder>
+    </appender>
+
+    <root level="INFO"> <!-- 全局日志级别 -->
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>
