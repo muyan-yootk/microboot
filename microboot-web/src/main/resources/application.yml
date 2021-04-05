@@ -28,4 +28,3 @@ info:
 logging:
   level: # 需要配置Map集合
     root: info # 基本的日志级别
-    com.yootk.action: warn # 针对于开发包进行的日志级别配置
