@@ -8,6 +8,7 @@ ext.versions = [    // 定义所有要使用的版本号
         itextpdf                            : '5.5.13.2', // PDF文件生成的依赖库
         easypoi                             : '4.3.0', // 生成Excel处理的依赖库
         hibernateValidator                  : '6.2.0.Final', // JSR303验证库
+        prometheus                          : '1.6.5', // Prometheus监控数据版本
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -31,5 +32,7 @@ ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为生成Excel文件有关的依赖配置
         'easypoi-spring-boot-starter': "cn.afterturn:easypoi-spring-boot-starter:${versions.easypoi}",
         // 以下的配置为HibernateValidator实现的JSR303验证标准依赖
-        'hibernate-validator': "org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}"
+        'hibernate-validator': "org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}",
+        // 以下的配置为Prometheus监控数据操作
+        'micrometer-registry-prometheus': "io.micrometer:micrometer-registry-prometheus:${versions.prometheus}"
 ]

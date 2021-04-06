@@ -3,12 +3,6 @@ server:
 management:
   server:
     port: 9090
-  endpoint:
-    shutdown:
-      enabled: true # 可以直接进行远程关闭
-    health:
-      show-details: always # 显示异常信息
-      show-components: always # 显示组件信息
   endpoints:
     web:
       exposure:
