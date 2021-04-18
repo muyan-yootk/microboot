@@ -12,7 +12,7 @@ ext.versions = [    // 定义所有要使用的版本号
         shedlock                            : '4.23.0', // ShedLock组件
         springDataRedis                     : '2.4.5', // SpringDataRedis版本
         commonsPool2                        : '2.9.0', // 连接池版本
-        jaxwsRi                             : '2.3.4', // JDK-WS依赖
+        jaxwsRi                             : '2.3.3', // JDK-WS依赖
         cxf                                 : '3.4.3', // WEBService开发框架版本
 ]
 ext.libraries = [   // 定义所有的依赖库
