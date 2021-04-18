@@ -9,6 +9,9 @@ ext.versions = [    // 定义所有要使用的版本号
         easypoi                             : '4.3.0', // 生成Excel处理的依赖库
         hibernateValidator                  : '6.2.0.Final', // JSR303验证库
         prometheus                          : '1.6.5', // Prometheus监控数据版本
+        shedlock                            : '4.23.0', // ShedLock组件
+        springDataRedis                     : '2.4.5', // SpringDataRedis版本
+        commonsPool2                        : '2.9.0', // 连接池版本
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -34,5 +37,11 @@ ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为HibernateValidator实现的JSR303验证标准依赖
         'hibernate-validator': "org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}",
         // 以下的配置为Prometheus监控数据操作
-        'micrometer-registry-prometheus': "io.micrometer:micrometer-registry-prometheus:${versions.prometheus}"
+        'micrometer-registry-prometheus': "io.micrometer:micrometer-registry-prometheus:${versions.prometheus}",
+        // 以下的配置为ShedLock分布式任务调度组件
+        'shedlock-spring': "net.javacrumbs.shedlock:shedlock-spring:${versions.shedlock}",
+        'shedlock-provider-redis-spring': "net.javacrumbs.shedlock:shedlock-provider-redis-spring:${versions.shedlock}",
+        // 以下的配置为Redis缓存组件
+        'spring-boot-starter-data-redis': "org.springframework.boot:spring-boot-starter-data-redis:${versions.springDataRedis}",
+        'commons-pool2': "org.apache.commons:commons-pool2:${versions.commonsPool2}"
 ]
