@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.jws.WebService;
 
-@WebService(serviceName = "Messageservice",
+@WebService(serviceName = "MessageService",
         targetNamespace = "http://service.yootk.com/", // 接口命名空间
         endpointInterface = "com.yootk.service.IMessageService") // 接口的名称
 @Service // 自动进行Bean注册

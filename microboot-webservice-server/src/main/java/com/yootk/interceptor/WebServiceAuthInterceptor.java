@@ -49,7 +49,8 @@ public class WebServiceAuthInterceptor extends AbstractPhaseInterceptor<SoapMess
             throw new Fault(new IllegalAccessException("找不到Header信息，无法实现用户认证处理！"));
         }
         String username = usernameNodeList.item(0).getTextContent().trim() ; // 获取用户名
-        String password = usernameNodeList.item(0).getTextContent().trim() ; // 获取密码
+        String password = passwordNodeList.item(0).getTextContent().trim() ; // 获取密码
+        System.err.println("【认证数据】用户名 = " + username + "、密码 = " + password);
         if (USER_NAME.equals(username) && USER_PASSWORD.equals(password)) { // 认证信息合法
             log.debug("用户访问认证成功！");
         } else { // 用户认证失败
