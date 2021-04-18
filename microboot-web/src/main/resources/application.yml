@@ -21,20 +21,23 @@ info:
 logging:
   level: # 需要配置Map集合
     root: info # 基本的日志级别
+context:
+  listener:
+    classes: com.yootk.event.listener.YootkListener
 spring:
   profiles:
     active: env
-  redis:
-    host: 192.168.190.130 # Redis主机地址
-    port: 6379 # Redis端口
-    password: hello # 密码
-    database: 0 # 第0个数据库
-    connect-timeout: 200
-    timeout: 200
-    lettuce: # 使用Lettuce连接池
-      pool:
-        max-active: 100
-        max-idle: 20
-        min-idle: 10
-        max-wait: 1000
-        time-between-eviction-runs: 2000 # 每2秒回收一次空闲连接
+#  redis:
+#    host: 192.168.190.130 # Redis主机地址
+#    port: 6379 # Redis端口
+#    password: hello # 密码
+#    database: 0 # 第0个数据库
+#    connect-timeout: 200
+#    timeout: 200
+#    lettuce: # 使用Lettuce连接池
+#      pool:
+#        max-active: 100
+#        max-idle: 20
+#        min-idle: 10
+#        max-wait: 1000
+#        time-between-eviction-runs: 2000 # 每2秒回收一次空闲连接

@@ -1,0 +1,107 @@
+2021-04-18 14:35:01.930  INFO [] 4912 --- [Test worker] com.yootk.test.TestEvent                 : Starting TestEvent using Java 11.0.2 on DESKTOP-O838165 with PID 4912 (started by yootk in H:\workspace\idea\muyan_yootk\microboot\microboot-web)
+2021-04-18 14:35:01.931  INFO [] 4912 --- [Test worker] com.yootk.test.TestEvent                 : The following profiles are active: env
+2021-04-18 14:35:02.865  INFO [] 4912 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-18 14:35:02.868  INFO [] 4912 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-18 14:35:02.896  INFO [] 4912 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2021-04-18 14:35:04.308  INFO [] 4912 --- [Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 14:35:05.439  INFO [] 4912 --- [Test worker] com.yootk.config.DynmaicScheduleConfig   : 设置当前的CRON表达式：*/2 * * * * ?
+2021-04-18 14:35:05.451  INFO [] 4912 --- [Test worker] com.yootk.test.TestEvent                 : Started TestEvent in 3.985 seconds (JVM running for 5.701)
+2021-04-18 14:35:06.052  INFO [] 4912 --- [Test worker] com.yootk.event.listener.YootkListener   : 事件处理：com.yootk.event.YootkEvent[source=com.yootk.test.TestEvent@f5e176d]
+2021-04-18 14:35:06.062  INFO [] 4912 --- [Test worker] com.yootk.event.YootkEvent               : message = Message(title=沐言科技, url=www.yootk.com)
+2021-04-18 14:35:06.132  INFO [] 4912 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 14:35:06.898 ERROR [] 4912 --- [pool-2-thread-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.190.130:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1553)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1461)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1247)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1230)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:979)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:359)
+	at org.springframework.data.redis.core.RedisConnectionUtils.fetchConnection(RedisConnectionUtils.java:193)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:144)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:105)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:209)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:189)
+	at net.javacrumbs.shedlock.provider.redis.spring.RedisLockProvider.tryToSetExpiration(RedisLockProvider.java:147)
+	at net.javacrumbs.shedlock.provider.redis.spring.RedisLockProvider.lock(RedisLockProvider.java:99)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy78.lock(Unknown Source)
+	at net.javacrumbs.shedlock.core.DefaultLockingTaskExecutor.executeWithLock(DefaultLockingTaskExecutor.java:63)
+	at net.javacrumbs.shedlock.spring.aop.MethodProxyScheduledLockAdvisor$LockingInterceptor.invoke(MethodProxyScheduledLockAdvisor.java:86)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.yootk.task.YootkScheduleTask$$EnhancerBySpringCGLIB$$70dddeb2.task(<generated>)
+	at com.yootk.config.DynmaicScheduleConfig.lambda$configureTasks$0(DynmaicScheduleConfig.java:22)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.190.130:6379
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1459)
+	... 33 common frames omitted
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.190.130:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:320)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:211)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115)
+	at java.base/java.util.Optional.orElseGet(Optional.java:369)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115)
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.lambda$null$0(LettucePoolingConnectionProvider.java:97)
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:211)
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:201)
+	at org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:58)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:918)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:431)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:356)
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:122)
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:117)
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:103)
+	... 34 common frames omitted
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.190.130:6379
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 common frames omitted
+
+2021-04-18 14:35:06.908  INFO [] 4912 --- [pool-2-thread-1] com.yootk.config.DynmaicScheduleConfig   : 设置当前的CRON表达式：*/2 * * * * ?
+2021-04-18 14:35:35.129  INFO [] 3104 --- [Test worker] com.yootk.test.TestEvent                 : Starting TestEvent using Java 11.0.2 on DESKTOP-O838165 with PID 3104 (started by yootk in H:\workspace\idea\muyan_yootk\microboot\microboot-web)
+2021-04-18 14:35:35.130  INFO [] 3104 --- [Test worker] com.yootk.test.TestEvent                 : The following profiles are active: env
+2021-04-18 14:35:36.053  INFO [] 3104 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-18 14:35:36.059  INFO [] 3104 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-18 14:35:36.092  INFO [] 3104 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2021-04-18 14:35:37.419  INFO [] 3104 --- [Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 14:35:38.302  INFO [] 3104 --- [Test worker] com.yootk.config.DynmaicScheduleConfig   : 设置当前的CRON表达式：*/2 * * * * ?
+2021-04-18 14:35:38.314  INFO [] 3104 --- [Test worker] com.yootk.test.TestEvent                 : Started TestEvent in 3.647 seconds (JVM running for 5.153)
+2021-04-18 14:35:38.839  INFO [] 3104 --- [Test worker] com.yootk.event.listener.YootkListener   : 事件处理：com.yootk.event.YootkEvent[source=com.yootk.test.TestEvent@17b322f0]
+2021-04-18 14:35:38.839  INFO [] 3104 --- [Test worker] com.yootk.event.YootkEvent               : message = Message(title=沐言科技, url=www.yootk.com)
+2021-04-18 14:35:38.873  INFO [] 3104 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 14:37:41.691  INFO [] 10512 --- [Test worker] com.yootk.test.TestEvent                 : Starting TestEvent using Java 11.0.2 on DESKTOP-O838165 with PID 10512 (started by yootk in H:\workspace\idea\muyan_yootk\microboot\microboot-web)
+2021-04-18 14:37:41.692  INFO [] 10512 --- [Test worker] com.yootk.test.TestEvent                 : The following profiles are active: env
+2021-04-18 14:37:42.952  INFO [] 10512 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-04-18 14:37:42.955  INFO [] 10512 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-04-18 14:37:42.989  INFO [] 10512 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2021-04-18 14:37:44.385  INFO [] 10512 --- [Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 14:37:45.065  INFO [] 10512 --- [Test worker] com.yootk.config.DynmaicScheduleConfig   : 设置当前的CRON表达式：*/2 * * * * ?
+2021-04-18 14:37:45.087  INFO [] 10512 --- [Test worker] com.yootk.test.TestEvent                 : Started TestEvent in 3.851 seconds (JVM running for 5.133)
+2021-04-18 14:37:45.500  INFO [] 10512 --- [Test worker] com.yootk.event.listener.YootkListener   : 事件处理：com.yootk.event.YootkEvent[source=com.yootk.test.TestEvent@546b84fd]
+2021-04-18 14:37:45.501  INFO [] 10512 --- [Test worker] com.yootk.event.YootkEvent               : message = Message(title=沐言科技, url=www.yootk.com)
+2021-04-18 14:37:45.535  INFO [] 10512 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
