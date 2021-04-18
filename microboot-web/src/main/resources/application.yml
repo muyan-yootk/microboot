@@ -21,9 +21,9 @@ info:
 logging:
   level: # 需要配置Map集合
     root: info # 基本的日志级别
-context:
-  listener:
-    classes: com.yootk.event.listener.YootkListener
+#context:
+#  listener:
+#    classes: com.yootk.event.listener.YootkListener
 spring:
   profiles:
     active: env

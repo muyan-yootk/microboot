@@ -1,7 +1,6 @@
 package com.yootk.test;
 
 import com.yootk.StartSpringBootApplication;
-import com.yootk.event.YootkEvent;
 import com.yootk.vo.Message;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,11 +16,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class TestEvent { // 编写测试类
     @Autowired // 是由Spring容器提供的
     private ApplicationEventPublisher publisher; // 事件发布类
+
     @Test
     public void testEvent() {    // 进行响应测试
-        Message message = new Message(); // 实例化Message对象
-        message.setTitle("沐言科技");
-        message.setUrl("www.yootk.com");
-        this.publisher.publishEvent(new YootkEvent(this, message));
+        this.publisher.publishEvent(new Message("yootk", "www.yootk.com"));
     }
 }

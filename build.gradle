@@ -103,11 +103,11 @@ project('microboot-web') { // 子模块
     dependencies { // 配置子模块依赖
         compile(project(':microboot-common')) // 引入其他子模块
         compile('org.springframework.boot:spring-boot-starter-actuator')
-        compile(libraries.'micrometer-registry-prometheus')
-        implementation(libraries.'shedlock-spring')
-        implementation(libraries.'shedlock-provider-redis-spring')
-        implementation(libraries.'spring-boot-starter-data-redis')
-        implementation(libraries.'commons-pool2')
+//        compile(libraries.'micrometer-registry-prometheus')
+//        implementation(libraries.'shedlock-spring')
+//        implementation(libraries.'shedlock-provider-redis-spring')
+//        implementation(libraries.'spring-boot-starter-data-redis')
+//        implementation(libraries.'commons-pool2')
     }
 }
 project('microboot-common') { // 子模块
