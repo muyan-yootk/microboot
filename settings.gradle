@@ -1,7 +1,4 @@
 rootProject.name = 'microboot'
 include 'microboot-common'
 include 'microboot-web'
-include 'microboot-webservice-common'
-include 'microboot-webservice-server'
-include 'microboot-webservice-client'
 
