@@ -1,16 +1,18 @@
 package com.yootk.webflux.handler;
 
+import com.yootk.vo.Message;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
+
 @Component // 进行组件注册
+@Slf4j // 日志输出
 public class MessageHandler { // 这是一个WebFlux处理模块了
-    // 在WebFlux编程里面如果要进行响应的话会区分单个响应（单一对象）以及多个响应（集合）
-    public Mono<ServerResponse> echoHandler(ServerRequest request) {    // 请求接收以及响应
-        return ServerResponse.ok()
-                .header("Content-Type", "text/html;charset=UTF-8")  // 响应头信息
-                .body(BodyInserters.fromValue("沐言科技：www.yootk.com"));
+    // 此时不再关注传统的ServerResponse以及ServletRequest类型了
+    public Mono<Message> echoHandler(Message message) { // 直接以最终的数据类型进行操作
+        log.info("【{}】业务层接收处理数据：{}", Thread.currentThread().getName(), message);
+        message.setTitle("【" + Thread.currentThread().getName() + "】" + message.getTitle());
+        message.setContent("【" + Thread.currentThread().getName() + "】" + message.getContent());
+        return Mono.create(monoSink -> monoSink.success(message)); // 实现数据响应
     }
 }
