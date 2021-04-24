@@ -40,4 +40,14 @@ public class MessageAction { // 正常访问的路由配置
         // 思考：按照常规的做法此时肯定也要返回业务层的处理结果
         return this.messageHandler.echoHandler(message);
     }
+    @RequestMapping("list")
+    public Object list(Message message) {
+        log.info("接收用户范维根信息，用户发送的参数为：message = {}", message);
+        return this.messageHandler.list(message);
+    }
+    @RequestMapping("map")
+    public Object map(Message message) {
+        log.info("接收用户范维根信息，用户发送的参数为：message = {}", message);
+        return this.messageHandler.map(message);
+    }
 }
