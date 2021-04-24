@@ -105,6 +105,11 @@ project('microboot-web') { // 子模块
         compile('org.springframework.boot:spring-boot-starter-actuator')
     }
 }
+project('microboot-webflux') { // 子模块
+    dependencies { // 配置子模块依赖
+        implementation('org.springframework.boot:spring-boot-starter-webflux')
+    }
+}
 project('microboot-common') { // 子模块
     dependencies { // 配置子模块依赖
         compile('org.springframework.boot:spring-boot-starter-web')// 引入SpringBoot依赖
