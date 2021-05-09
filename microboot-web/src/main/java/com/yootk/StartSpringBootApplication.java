@@ -7,7 +7,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication // 一个注解解决所有的问题
-@EnableScheduling // 启动定时任务调度
 public class StartSpringBootApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(StartSpringBootApplication.class,args); // 运行SpringBoot程序

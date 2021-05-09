@@ -9,6 +9,7 @@ management:
         include: "*" # 开放全部的微服务监控端口
       base-path: /actuator # 监控服务的父路径
 
+
 info:
   app:
     name: 沐言科技 —— SpringBoot微服务
@@ -41,3 +42,9 @@ spring:
 #        min-idle: 10
 #        max-wait: 1000
 #        time-between-eviction-runs: 2000 # 每2秒回收一次空闲连接
+muyan:
+  yootk:
+    dept:
+      deptno: 10
+      dname: 沐言科技（www.yootk.com） —— 教学研发部
+      loc: 北京
