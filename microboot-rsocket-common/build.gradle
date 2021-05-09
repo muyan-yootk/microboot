@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.yootk'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+jar {enabled = true}
+javadocTask {enabled = false}
+javadocJar {enabled = false}
+bootJar {enabled = false}
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

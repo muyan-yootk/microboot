@@ -1,0 +1,4 @@
+spring:
+  rsocket: # RSocket配置项
+    server:
+      port: 6869 # 服务监听端口
