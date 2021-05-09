@@ -15,7 +15,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @SpringBootTest(classes = StartAutoConfigApplication.class) // 配置程序启动类
 public class TestAutoConfig { // 编写测试类
     @Autowired
-    @Qualifier("muyan.yootk.dept-com.yootk.vo.Dept") // “前缀 + 类名称”
     private Dept dept;
 
     @Test
