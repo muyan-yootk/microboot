@@ -5,4 +5,5 @@ include 'microboot-rsocket-base'
 include 'microboot-rsocket-common'
 include 'microboot-rsocket-server'
 include 'microboot-rsocket-client'
+include 'microboot-rsocket-websocket'
 

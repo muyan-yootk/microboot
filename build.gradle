@@ -134,3 +134,11 @@ project('microboot-rsocket-client') { // 子模块
         compile(project(':microboot-rsocket-common'))
     }
 }
+
+project('microboot-rsocket-websocket') { // 子模块
+    dependencies { // 配置子模块依赖
+        compile('org.springframework.boot:spring-boot-starter-web')// 引入SpringBoot依赖
+        compile('org.springframework.boot:spring-boot-starter-rsocket')
+        compile(project(':microboot-rsocket-common'))
+    }
+}
