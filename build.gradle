@@ -112,6 +112,7 @@ project('microboot-common') { // 子模块
 }
 project('microboot-autoconfig-starter') { // 子模块
     dependencies { // 配置子模块依赖
+        annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
         implementation('org.springframework.boot:spring-boot-starter-web')// 引入SpringBoot依赖
     }
 }
