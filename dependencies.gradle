@@ -57,4 +57,5 @@ ext.libraries = [   // 定义所有的依赖库
         'mysql-connector-java': "mysql:mysql-connector-java:${versions.mysql}",
         'druid-spring-boot-starter': "com.alibaba:druid-spring-boot-starter:${versions.druid}",
         'spring-jdbc': "org.springframework:spring-jdbc:${versions.springJdbc}",
+        'druid': "com.alibaba:druid:${versions.druid}"
 ]

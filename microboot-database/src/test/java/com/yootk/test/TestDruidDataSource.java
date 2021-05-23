@@ -4,6 +4,7 @@ import com.yootk.StartSpringBootDatabaseApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 @SpringBootTest(classes = StartSpringBootDatabaseApplication.class) // 配置程序启动类
 public class TestDruidDataSource { // 编写测试类
     @Autowired
+    @Qualifier("yootkDruidDataSource") // 设置要注入的Bean名称
     private DataSource dataSource;
     @Test
     public void testDruid() {    // 进行响应测试
