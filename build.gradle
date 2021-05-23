@@ -119,5 +119,6 @@ project('microboot-database') { // 子模块
         // compile(libraries.'druid-spring-boot-starter') // 删除掉此依赖库配置
         compile(libraries.'druid') // 添加原始依赖
         compile(libraries.'spring-jdbc')
+        compile('org.springframework.boot:spring-boot-starter-aop')
     }
 }
