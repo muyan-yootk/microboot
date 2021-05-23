@@ -3,6 +3,8 @@ package com.yootk.config;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.druid.wall.WallConfig;
+import com.alibaba.druid.wall.WallFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -58,6 +60,19 @@ public class DruidMonitorConfiguration { // Druid监控配置
         filter.setMergeSql(mergeSql); // 是否需要合并统计
         filter.setLogSlowSql(logSlowSql); // 慢SQL记录
         filter.setSlowSqlMillis(slowSqlMillis); // 慢SQL执行时间
+        return filter;
+    }
+    @Bean("sqlWallConfig")
+    public WallConfig getSQLWallConfig() { // 获取防火墙
+        WallConfig wc = new WallConfig(); // 配置防火墙
+        wc.setMultiStatementAllow(true); // 允许进行多个Statatement操作（批处理）
+        wc.setDeleteAllow(false); // 不允许执行删除
+        return wc;
+    }
+    @Bean("sqlWallFilter")
+    public WallFilter getSQLWallFilter(WallConfig wallConfig) { // 注入防火墙配置项
+        WallFilter filter = new WallFilter();
+        filter.setConfig(wallConfig);
         return filter;
     }
 }

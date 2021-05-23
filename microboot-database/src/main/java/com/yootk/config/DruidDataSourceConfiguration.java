@@ -3,6 +3,7 @@ package com.yootk.config;
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.wall.WallFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -47,8 +48,9 @@ public class DruidDataSourceConfiguration { // 自定义的Druid配置类
             boolean poolPreparedStatements, // 是否缓存PSTMT
             @Value("${spring.yootk.datasource.druid.max-pool-prepared-statement-per-connection-size}")
             int maxPoolPreparedStatementPerConnectionSize, // PSTMT缓存个数
-            @Autowired StatFilter sqlStatFilter // 注入SQL监控
-    ) {
+            @Autowired StatFilter sqlStatFilter, // 注入SQL监控
+            @Autowired WallFilter sqlWallFilter // 注入SQL防火墙
+            ) {
         DruidDataSource dataSource = new DruidDataSource(); // 实例化DataSource子类对象
         dataSource.setDriverClassName(driverClassName); // 数据库驱动程序
         dataSource.setUrl(url); // 数据库的连接地址
@@ -58,17 +60,20 @@ public class DruidDataSourceConfiguration { // 自定义的Druid配置类
         dataSource.setMinIdle(minIdle); // 最小维持的连接数量
         dataSource.setMaxActive(maxActive); // 最大的连接数量
         dataSource.setMaxWait(maxWait); // 最大等待时间
-        dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis); // 检查的间隔时间
+        dataSource.setTimeBetweenEvictionRunsMillis(
+                timeBetweenEvictionRunsMillis); // 检查的间隔时间
         dataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis); // 存活时间
         dataSource.setValidationQuery(validationQuery); // 验证SQL
         dataSource.setTestWhileIdle(testWhileIdle); // 测试连接是否可用
         dataSource.setTestOnBorrow(testOnBorrow); // 获取时检测
         dataSource.setTestOnReturn(testOnReturn); // 归还时检测
         dataSource.setPoolPreparedStatements(poolPreparedStatements); // 是否缓存PSTMT
-        dataSource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize); // 缓存个数
+        dataSource.setMaxPoolPreparedStatementPerConnectionSize(
+                maxPoolPreparedStatementPerConnectionSize); // 缓存个数
         // 定义所有可能存在的监控项集合
         List<Filter> filterList = new ArrayList<>();
         filterList.add(sqlStatFilter); // 配置监控项
+        filterList.add(sqlWallFilter); // SQL防火墙
         dataSource.setProxyFilters(filterList); // 与DataSource整合
         return dataSource;
     }

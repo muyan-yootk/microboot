@@ -36,4 +36,16 @@ public class MemberAction extends AbstractBaseAction {
                 });
         return allMembers;
     }
+    @RequestMapping("add")
+    public Object add(Member member) {
+        String sql = "INSERT INTO member(mid, name, age, salary, birthday, content) " +
+                " VALUES (?, ?, ?, ?, ?, ?)";
+        return this.jdbcTemplate.update(sql, member.getMid(), member.getName(), member.getAge(),
+                member.getSalary(), member.getBirthday(), member.getContent());
+    }
+    @RequestMapping("delete")
+    public Object delete() {
+        String sql = "DELETE FROM member";
+        return this.jdbcTemplate.update(sql);
+    }
 }
