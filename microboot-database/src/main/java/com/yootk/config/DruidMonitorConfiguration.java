@@ -1,7 +1,9 @@
 package com.yootk.config;
 
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -42,5 +44,20 @@ public class DruidMonitorConfiguration { // Druid监控配置
         WebStatFilter statFilter = new WebStatFilter();
         statFilter.setSessionStatEnable(true); // 对Session状态进行监控
         return statFilter;
+    }
+    @Bean("sqlStatFilter")
+    public StatFilter getSQLStatFilter(
+            @Value("${spring.yootk.datasource.druid.stat.merge-sql}")
+                    boolean mergeSql,
+            @Value("${spring.yootk.datasource.druid.stat.log-slow-sql}")
+                    boolean logSlowSql,
+            @Value("${spring.yootk.datasource.druid.stat.slow-sql-millis}")
+                    long slowSqlMillis
+    ) { // 定义关于SQL监控的处理部分
+        StatFilter filter = new StatFilter();
+        filter.setMergeSql(mergeSql); // 是否需要合并统计
+        filter.setLogSlowSql(logSlowSql); // 慢SQL记录
+        filter.setSlowSqlMillis(slowSqlMillis); // 慢SQL执行时间
+        return filter;
     }
 }

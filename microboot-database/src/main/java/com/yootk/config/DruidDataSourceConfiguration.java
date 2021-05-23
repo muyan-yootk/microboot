@@ -1,9 +1,15 @@
 package com.yootk.config;
 
+import com.alibaba.druid.filter.Filter;
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 public class DruidDataSourceConfiguration { // 自定义的Druid配置类
@@ -40,7 +46,8 @@ public class DruidDataSourceConfiguration { // 自定义的Druid配置类
             @Value("${spring.yootk.datasource.druid.pool-prepared-statements}")
             boolean poolPreparedStatements, // 是否缓存PSTMT
             @Value("${spring.yootk.datasource.druid.max-pool-prepared-statement-per-connection-size}")
-            int maxPoolPreparedStatementPerConnectionSize // PSTMT缓存个数
+            int maxPoolPreparedStatementPerConnectionSize, // PSTMT缓存个数
+            @Autowired StatFilter sqlStatFilter // 注入SQL监控
     ) {
         DruidDataSource dataSource = new DruidDataSource(); // 实例化DataSource子类对象
         dataSource.setDriverClassName(driverClassName); // 数据库驱动程序
@@ -59,6 +66,10 @@ public class DruidDataSourceConfiguration { // 自定义的Druid配置类
         dataSource.setTestOnReturn(testOnReturn); // 归还时检测
         dataSource.setPoolPreparedStatements(poolPreparedStatements); // 是否缓存PSTMT
         dataSource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize); // 缓存个数
+        // 定义所有可能存在的监控项集合
+        List<Filter> filterList = new ArrayList<>();
+        filterList.add(sqlStatFilter); // 配置监控项
+        dataSource.setProxyFilters(filterList); // 与DataSource整合
         return dataSource;
     }
 }
