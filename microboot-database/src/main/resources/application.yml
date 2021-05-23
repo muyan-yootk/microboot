@@ -25,7 +25,7 @@ spring:
         stat: # 监控配置
           merge-sql: true # 统计相同的SQL命令
           log-slow-sql: true # 记录慢SQL
-          slow-sql-millis: 2000 # 慢SQL执行时间标准
+          slow-sql-millis: 1 # 慢SQL执行时间标准
 
 management:
   server:

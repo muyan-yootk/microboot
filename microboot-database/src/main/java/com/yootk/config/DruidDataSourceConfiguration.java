@@ -1,6 +1,7 @@
 package com.yootk.config;
 
 import com.alibaba.druid.filter.Filter;
+import com.alibaba.druid.filter.logging.Slf4jLogFilter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.wall.WallFilter;
@@ -49,7 +50,8 @@ public class DruidDataSourceConfiguration { // 自定义的Druid配置类
             @Value("${spring.yootk.datasource.druid.max-pool-prepared-statement-per-connection-size}")
             int maxPoolPreparedStatementPerConnectionSize, // PSTMT缓存个数
             @Autowired StatFilter sqlStatFilter, // 注入SQL监控
-            @Autowired WallFilter sqlWallFilter // 注入SQL防火墙
+            @Autowired WallFilter sqlWallFilter, // 注入SQL防火墙
+            @Autowired Slf4jLogFilter logFilter // 日志记录
             ) {
         DruidDataSource dataSource = new DruidDataSource(); // 实例化DataSource子类对象
         dataSource.setDriverClassName(driverClassName); // 数据库驱动程序
@@ -74,6 +76,7 @@ public class DruidDataSourceConfiguration { // 自定义的Druid配置类
         List<Filter> filterList = new ArrayList<>();
         filterList.add(sqlStatFilter); // 配置监控项
         filterList.add(sqlWallFilter); // SQL防火墙
+        filterList.add(logFilter); // 日志记录
         dataSource.setProxyFilters(filterList); // 与DataSource整合
         return dataSource;
     }

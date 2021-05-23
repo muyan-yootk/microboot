@@ -37,4 +37,30 @@
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
     </root>
+
+
+    <appender name="druidSqlFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 设置日志保存路径，本次按照月份创建日志目录，而后每天的文件归档到一组 -->
+            <FileNamePattern>
+                druid-logs/%d{yyyy-MM}/yootk_druid_slow_sql_%d{yyyy-MM-dd}.log
+            </FileNamePattern>
+            <MaxHistory>365</MaxHistory>	<!-- 删除超过365天的日志文件 -->
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level> 		<!-- 保存ERROR及以上级别的日志 -->
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n
+            </pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+    <logger name="com.alibaba.druid.filter.stat.StatFilter" level="ERROR">
+        <appender-ref ref="druidSqlFile"/>
+    </logger>
+
+
 </configuration>
