@@ -1,0 +1,32 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 配置数据源的类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL8之后的驱动
+    url: jdbc:mysql://localhost:3306/yootk # 数据库的JDBC连接地址
+    username: root # 用户名
+    password: mysqladmin # 密码
+    druid: # 定义数据库连接池所需要的相关配置项
+      initial-size: 5 # 初始化连接池大小
+      min-idle: 10 # 最小维持的连接池大小
+      max-active: 50 # 最大可提供的连接数量
+      max-wait: 60000 # 最长等待时间
+      time-between-eviction-runs-millis: 6000 # 关闭空闲连接间隔（毫秒）
+      min-evictable-idle-time-millis: 30000 # 连接最小的生存时间
+      validation-query: SELECT 1 FROM dual # 数据库的状态检测
+      test-while-idle: true # 判断连接是否可用
+      test-on-borrow: false # 在获得连接之前是否要进行测试
+      test-on-return: false # 归还连接前是否需要进行测试
+      pool-prepared-statements: false # 不缓存PSTMT
+      max-pool-prepared-statement-per-connection-size: 20 # 配置PSTMT缓存个数
+
+management:
+  server:
+    port: 9090
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开放全部的微服务监控端口
+      base-path: /actuator # 监控服务的父路径

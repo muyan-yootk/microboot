@@ -14,6 +14,9 @@ ext.versions = [    // 定义所有要使用的版本号
         commonsPool2                        : '2.9.0', // 连接池版本
         jaxwsRi                             : '2.3.3', // JDK-WS依赖
         cxf                                 : '3.4.3', // WEBService开发框架版本
+        mysql                               : '8.0.25', // MySQL驱动的版本
+        druid                               : '1.2.6', // Druid版本
+        springJdbc                          : '5.3.7', // SpringJDBC版本
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -50,4 +53,8 @@ ext.libraries = [   // 定义所有的依赖库
         'jaxws-ri': "com.sun.xml.ws:jaxws-ri:${versions.jaxwsRi}",
         'cxf-spring-boot-starter-jaxws': "org.apache.cxf:cxf-spring-boot-starter-jaxws:${versions.cxf}",
         'cxf-rt-transports-http': "org.apache.cxf:cxf-rt-transports-http:${versions.cxf}",
+        // 以下的配置为数据库开发所需要的依赖：
+        'mysql-connector-java': "mysql:mysql-connector-java:${versions.mysql}",
+        'druid-spring-boot-starter': "com.alibaba:druid-spring-boot-starter:${versions.druid}",
+        'spring-jdbc': "org.springframework:spring-jdbc:${versions.springJdbc}",
 ]
