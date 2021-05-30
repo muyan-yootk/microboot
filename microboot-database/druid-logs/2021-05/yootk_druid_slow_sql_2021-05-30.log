@@ -27,3 +27,6 @@ AND (name LIKE ?) LIMIT ?["%沐言%",5]
 ?
  )  AND isdel=0["lixinghua","yootk","muyan"]
 2021-05-30 09:19:04.365 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 8 millis. SELECT mid, name, age, salary, birthday, content FROM member;[]
+2021-05-30 09:47:19.526 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 10 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]
+2021-05-30 09:47:46.809 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 11 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]
+2021-05-30 09:48:08.156 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 13 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]

@@ -35,7 +35,7 @@ public class MemberAction extends AbstractBaseAction {
     }
     @RequestMapping("delete")
     public Object delete(String ... id) {
-        log.info("根据ID删除数据：{}", id);
+        log.info("根据ID删除数据：{}", Arrays.asList(id));
         Set<String> ids = new HashSet<>();
         ids.addAll(Arrays.asList(id));
         return this.memberService.delete(ids);
