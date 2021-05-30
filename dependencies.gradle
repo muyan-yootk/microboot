@@ -19,6 +19,7 @@ ext.versions = [    // 定义所有要使用的版本号
         springJdbc                          : '5.3.7', // SpringJDBC版本
         mybatis                             : '3.5.7', // MyBatis的开发版本
         mybatisSpringBoot                   : '2.2.0', // Mybatis-SpringBoot整合依赖
+        mybatisPlus                         : '3.4.3', // MyBatisPlus依赖版本
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -63,4 +64,7 @@ ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为MyBatis开发框架所需要的依赖：
         'mybatis': "org.mybatis:mybatis:${versions.mybatis}",
         'mybatis-spring-boot-starter': "org.mybatis.spring.boot:mybatis-spring-boot-starter:${versions.mybatisSpringBoot}",
+        // 以下的配置为MybatisPlus开发框架所需要的依赖：
+        'mybatis-plus': "com.baomidou:mybatis-plus:${versions.mybatisPlus}",
+        'mybatis-plus-boot-starter': "com.baomidou:mybatis-plus-boot-starter:${versions.mybatisPlus}",
 ]

@@ -1,51 +1,48 @@
 package com.yootk.action;
 
 import com.yootk.common.action.abs.AbstractBaseAction;
+import com.yootk.service.IMemberService;
 import com.yootk.vo.Member;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/member/*")
+@Slf4j
 public class MemberAction extends AbstractBaseAction {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private IMemberService memberService;
     @RequestMapping("list")
     public Object list() {
-        String sql = "SELECT mid,name,age,salary,birthday,content FROM member";
-        List<Member> allMembers = this.jdbcTemplate.query(sql,
-                new RowMapper<Member>() {
-                    @Override
-                    public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Member member = new Member();
-                        member.setMid(rs.getString(1));
-                        member.setName(rs.getString(2));
-                        member.setAge(rs.getInt(3));
-                        member.setSalary(rs.getDouble(4));
-                        member.setBirthday(rs.getDate(5));
-                        member.setContent(rs.getString(6));
-                        return member;
-                    }
-                });
-        return allMembers;
+        log.info("查询全部Member数据。");
+        return this.memberService.list();
+    }
+    @RequestMapping("get")
+    public Object get(String mid) {
+        log.info("查询用户数据：{}", mid);
+        return this.memberService.get(mid);
     }
     @RequestMapping("add")
     public Object add(Member member) {
-        String sql = "INSERT INTO member(mid, name, age, salary, birthday, content) " +
-                " VALUES (?, ?, ?, ?, ?, ?)";
-        return this.jdbcTemplate.update(sql, member.getMid(), member.getName(), member.getAge(),
-                member.getSalary(), member.getBirthday(), member.getContent());
+        log.info("增加新的用户数据：{}", member);
+        return this.memberService.add(member);
     }
     @RequestMapping("delete")
-    public Object delete() {
-        String sql = "DELETE FROM member";
-        return this.jdbcTemplate.update(sql);
+    public Object delete(String ... id) {
+        log.info("根据ID删除数据：{}", id);
+        Set<String> ids = new HashSet<>();
+        ids.addAll(Arrays.asList(id));
+        return this.memberService.delete(ids);
+    }
+    @RequestMapping("split")
+    public Object split(String column, String keyword, int currentPage, int lineSize) {
+        log.info("数据分页显示，查询模糊列：{}、查询关键字：{}、当前页：{}、每页行数：{}");
+        return this.memberService.listSplit(column, keyword, currentPage, lineSize);
     }
 }

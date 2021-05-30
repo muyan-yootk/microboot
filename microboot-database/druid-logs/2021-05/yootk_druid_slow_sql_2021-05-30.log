@@ -1,1 +1,29 @@
 2021-05-30 08:48:00.313 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 10 millis. SELECT mid, name, age, salary, birthday, content FROM member;[]
+2021-05-30 09:14:27.994 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 7 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]
+2021-05-30 09:15:44.254 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 96 millis. INSERT INTO member  ( mid,
+name,
+age,
+
+birthday,
+content )  VALUES  ( ?,
+?,
+?,
+
+?,
+? )["yootk - 0.4118141696015971","沐言科技",16,"2021-05-30 09:15:43","www.yootk.com"]
+2021-05-30 09:17:40.703 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 14 millis. SELECT COUNT( * ) FROM member 
+ WHERE  isdel=0
+
+AND (name LIKE ?)["%沐言%"]
+2021-05-30 09:17:40.793 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 1 millis. SELECT  mid,name,age,salary,birthday,content,isdel  FROM member 
+ WHERE  isdel=0
+
+AND (name LIKE ?) LIMIT ?["%沐言%",5]
+2021-05-30 09:18:39.389 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 106 millis. UPDATE member SET isdel=1 WHERE mid IN (  
+?
+ , 
+?
+ , 
+?
+ )  AND isdel=0["lixinghua","yootk","muyan"]
+2021-05-30 09:19:04.365 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 8 millis. SELECT mid, name, age, salary, birthday, content FROM member;[]

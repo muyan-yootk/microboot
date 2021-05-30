@@ -122,5 +122,7 @@ project('microboot-database') { // 子模块
         compile('org.springframework.boot:spring-boot-starter-aop')
         compile(libraries.'mybatis')
         compile(libraries.'mybatis-spring-boot-starter')
+        compile(libraries.'mybatis-plus')
+        compile(libraries.'mybatis-plus-boot-starter')
     }
 }

@@ -1,10 +1,14 @@
 server:
   port: 80
 
-mybatis:
+mybatis-plus:
   config-location: classpath:META-INF/mybatis/mybatis.cfg.xml # mybatis配置文件所在路径
   type-aliases-package: com.yootk.vo  # 定义所有操作类的别名所在包
   mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
+  global-config: # 全局配置
+    db-config:
+      logic-not-delete-value: 0 # 数据删除前
+      logic-delete-value: 1 # 数据删除后
 
 
 spring:
