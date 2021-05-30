@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-@Configuration
+// @Configuration
 public class DruidSpringConfig { // Spring监控配置类
     @Bean("druidStatInterceptor")
     public DruidStatInterceptor getDruidStatInterceptor() {

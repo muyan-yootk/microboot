@@ -10,32 +10,62 @@ mybatis-plus:
       logic-not-delete-value: 0 # 数据删除前
       logic-delete-value: 1 # 数据删除后
 
-
 spring:
-  yootk: # 一个自定义配置项，这个名称就是数据库的名称
-    datasource:
-      type: com.alibaba.druid.pool.DruidDataSource # 配置数据源的类型
-      driver-class-name: com.mysql.cj.jdbc.Driver # MySQL8之后的驱动
-      url: jdbc:mysql://localhost:3306/yootk # 数据库的JDBC连接地址
-      username: root # 用户名
-      password: mysqladmin # 密码
-      druid: # 定义数据库连接池所需要的相关配置项
-        initial-size: 5 # 初始化连接池大小
-        min-idle: 10 # 最小维持的连接池大小
-        max-active: 50 # 最大可提供的连接数量
-        max-wait: 60000 # 最长等待时间
-        time-between-eviction-runs-millis: 6000 # 关闭空闲连接间隔（毫秒）
-        min-evictable-idle-time-millis: 30000 # 连接最小的生存时间
-        validation-query: SELECT 1 FROM dual # 数据库的状态检测
-        test-while-idle: true # 判断连接是否可用
-        test-on-borrow: false # 在获得连接之前是否要进行测试
-        test-on-return: false # 归还连接前是否需要进行测试
-        pool-prepared-statements: false # 不缓存PSTMT
-        max-pool-prepared-statement-per-connection-size: 20 # 配置PSTMT缓存个数
-        stat: # 监控配置
-          merge-sql: true # 统计相同的SQL命令
-          log-slow-sql: true # 记录慢SQL
-          slow-sql-millis: 1 # 慢SQL执行时间标准
+  datasource: # 数据源配置
+    muyan: # muyan数据库连接配置
+      type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+      driver-class-name: com.mysql.cj.jdbc.Driver    # 配置MySQL的驱动程序类
+      url: jdbc:mysql://localhost:3306/muyan    # 数据库连接地址
+      username: root                # 数据库用户名
+      password: mysqladmin            # 数据库连接密码
+    yootk: # yootk数据库连接配置
+      type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+      driver-class-name: com.mysql.cj.jdbc.Driver    # 配置MySQL的驱动程序类
+      url: jdbc:mysql://localhost:3306/yootk    # 数据库连接地址
+      username: root                # 数据库用户名
+      password: mysqladmin            # 数据库连接密码
+    druid: # druid相关配置
+      initial-size: 5                # 初始化连接池大小
+      min-idle: 10                # 最小维持的连接池大小
+      max-active: 50                # 最大支持的连接池大小
+      max-wait: 60000                # 最大等待时间（毫秒）
+      time-between-eviction-runs-millis: 60000    # 关闭空闲连接间隔（毫秒）
+      min-evictable-idle-time-millis: 30000        # 连接最小生存时间（毫秒）
+      validation-query: SELECT 1 FROM dual        # 数据库状态检测
+      test-while-idle: true            # 申请连接的时候检测连接是否有效
+      test-on-borrow: false            # 申请连接时检测连接是否有效
+      test-on-return: false            # 归还连接时检测连接是否有效
+      pool-prepared-statements: false        # PSCache缓存
+      max-pool-prepared-statement-per-connection-size: 20    # 配置PS缓存
+      filters: stat, wall, slf4j            # 开启过滤
+      stat-view-servlet: # 监控界面配置
+        enabled: true    # 启用druid监控界面
+        allow: 127.0.0.1    # 设置访问白名单
+        login-username: muyan   # 用户名
+        login-password: yootk    # 密码
+        reset-enable: true  # 允许重置
+        url-pattern: /druid/*  # 访问路径
+      web-stat-filter: # WEB监控
+        enabled: true  # 启动URI监控
+        url-pattern: /*   # 跟踪根路径下的全部服务
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"    # 跟踪排除
+      filter: # Druid过滤器
+        slf4j: # 日志
+          enabled: true # 启用SLF4j监控
+          data-source-log-enabled: true  # 启用数据库日志
+          statement-executable-sql-log-enable: true # 执行日志
+          result-set-log-enabled: true # ResultSet日志启用
+        stat: # SQL监控
+          merge-sql: true # 统计时合并相同的SQL命令
+          log-slow-sql: true # 当SQL执行缓慢时是否要进行记录
+          slow-sql-millis: 1  # 设置慢SQL的执行时间标准，单位：毫秒
+        wall: # SQL防火墙
+          enabled: true  # 启用SQL防火墙
+          config: # 配置防火墙规则
+            multi-statement-allow: true # 允许执行批量SQL
+            delete-allow: false # 禁止执行删除语句
+      aop-patterns: "com.yootk.action.*,com.yootk.service.*,com.yootk.dao.*" # Spring监控
+
 
 management:
   server:

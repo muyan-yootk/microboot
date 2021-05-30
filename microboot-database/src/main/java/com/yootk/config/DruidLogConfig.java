@@ -4,7 +4,7 @@ import com.alibaba.druid.filter.logging.Slf4jLogFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+// @Configuration
 public class DruidLogConfig {
     @Bean("logFilter")
     public Slf4jLogFilter getLogFilter() {

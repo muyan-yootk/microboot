@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
+//@Configuration
 public class DruidDataSourceConfiguration { // 自定义的Druid配置类
     @Bean("yootkDruidDataSource") // 手工设置Bean名称
     public DruidDataSource getYootkDruidDataSource(

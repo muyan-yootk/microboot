@@ -12,11 +12,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-@RestController
+//@RestController
 @RequestMapping("/member/*")
 @Slf4j
 public class MemberAction extends AbstractBaseAction {
-    @Autowired
+    //@Autowired
     private IMemberService memberService;
     @RequestMapping("list")
     public Object list() {
