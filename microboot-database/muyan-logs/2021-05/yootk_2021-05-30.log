@@ -1,0 +1,13 @@
+2021-05-30 08:47:54.239  INFO [] 4372 --- [Test worker] com.yootk.test.TestMemberService         : Starting TestMemberService using Java 11.0.2 on DESKTOP-O838165 with PID 4372 (started by yootk in H:\workspace\idea\muyan_yootk\microboot\microboot-database)
+2021-05-30 08:47:54.241  INFO [] 4372 --- [Test worker] com.yootk.test.TestMemberService         : No active profile set, falling back to default profiles: default
+2021-05-30 08:47:56.500  INFO [] 4372 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'druidSpringConfig' of type [com.yootk.config.DruidSpringConfig$$EnhancerBySpringCGLIB$$e684c447] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-05-30 08:47:56.598  INFO [] 4372 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'druidStatInterceptor' of type [com.alibaba.druid.support.spring.stat.DruidStatInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-05-30 08:47:56.603  INFO [] 4372 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'druidSpringStatPointcut' of type [org.springframework.aop.support.JdkRegexpMethodPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-05-30 08:47:56.608  INFO [] 4372 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'druidSpringStatAdvisor' of type [org.springframework.aop.support.DefaultPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-05-30 08:47:58.047  INFO [] 4372 --- [Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-30 08:47:58.762  INFO [] 4372 --- [Test worker] com.yootk.test.TestMemberService         : Started TestMemberService in 5.161 seconds (JVM running for 7.455)
+2021-05-30 08:47:59.996  INFO [] 4372 --- [Test worker] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-05-30 08:48:00.313 ERROR [] 4372 --- [Test worker] c.alibaba.druid.filter.stat.StatFilter   : slow sql 10 millis. SELECT mid, name, age, salary, birthday, content FROM member;[]
+2021-05-30 08:48:00.392  INFO [] 4372 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-30 08:48:00.394  INFO [] 4372 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2021-05-30 08:48:00.398  INFO [] 4372 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

@@ -62,5 +62,5 @@
         <appender-ref ref="druidSqlFile"/>
     </logger>
 
-
+    <logger name="com.yootk.dao" level="DEBUG"/>
 </configuration>

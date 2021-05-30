@@ -1,6 +1,12 @@
 server:
   port: 80
 
+mybatis:
+  config-location: classpath:META-INF/mybatis/mybatis.cfg.xml # mybatis配置文件所在路径
+  type-aliases-package: com.yootk.vo  # 定义所有操作类的别名所在包
+  mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
+
+
 spring:
   yootk: # 一个自定义配置项，这个名称就是数据库的名称
     datasource:

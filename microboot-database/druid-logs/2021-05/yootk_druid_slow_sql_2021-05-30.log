@@ -1,0 +1,1 @@
+2021-05-30 08:48:00.313 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 10 millis. SELECT mid, name, age, salary, birthday, content FROM member;[]
