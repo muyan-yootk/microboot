@@ -13,4 +13,5 @@ public interface IMemberService {
     public boolean delete(Set<String> ids); // 数据删除
     public IPage<Member> listSplit(String column, String keyword,
                                    Integer currentPage, Integer lineSize); // 分页查询
+    public boolean addBatch(String ... mid); // 批量数据增加
 }

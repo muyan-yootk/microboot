@@ -32,6 +32,14 @@ public class TestMemberService { // 编写测试类
     }
 
     @Test
+    public void testAddBatchRepeatID() {
+        this.memberService.addBatch("muyan", "yootk", "lixinghua", "happy-summery");
+    }
+    @Test
+    public void testAddBatchNoRepeatID() {
+        this.memberService.addBatch("muyan-happy", "yootk-happy", "lixinghua-happy", "happy-summery");
+    }
+    @Test
     public void testAdd() {
         Member vo = new Member();
         vo.setMid("yootk - " + Math.random());

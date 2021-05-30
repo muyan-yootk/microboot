@@ -45,4 +45,15 @@ public class MemberServiceImpl implements IMemberService {
         IPage<Member> page = new Page<>(currentPage, lineSize, count);
         return this.memberDAO.selectPage(page, queryWrapper);
     }
+
+    @Override
+    public boolean addBatch(String... mid) {
+        for (String id : mid) {
+            Member vo = new Member();
+            vo.setMid(id); // 如果id重复则会出现更新异常
+            vo.setName("爆可爱的小李老师");
+            this.memberDAO.insert(vo);
+        }
+        return true;
+    }
 }

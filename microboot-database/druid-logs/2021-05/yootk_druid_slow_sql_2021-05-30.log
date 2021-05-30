@@ -30,3 +30,15 @@ AND (name LIKE ?) LIMIT ?["%沐言%",5]
 2021-05-30 09:47:19.526 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 10 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]
 2021-05-30 09:47:46.809 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 11 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]
 2021-05-30 09:48:08.156 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 13 millis. SELECT mid,name,age,salary,birthday,content,isdel FROM member WHERE mid=?  AND isdel=0["yootk"]
+2021-05-30 10:09:35.116 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 117 millis. INSERT INTO member  ( mid,
+name )  VALUES  ( ?,
+? )["muyan-happy","爆可爱的小李老师"]
+2021-05-30 10:09:35.189 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 69 millis. INSERT INTO member  ( mid,
+name )  VALUES  ( ?,
+? )["yootk-happy","爆可爱的小李老师"]
+2021-05-30 10:09:35.556 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 349 millis. INSERT INTO member  ( mid,
+name )  VALUES  ( ?,
+? )["lixinghua-happy","爆可爱的小李老师"]
+2021-05-30 10:09:35.623 ERROR com.alibaba.druid.filter.stat.StatFilter Line:487 - slow sql 64 millis. INSERT INTO member  ( mid,
+name )  VALUES  ( ?,
+? )["happy-summery","爆可爱的小李老师"]
