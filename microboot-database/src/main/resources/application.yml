@@ -13,13 +13,13 @@ mybatis-plus:
 spring:
   datasource: # 数据源配置
     muyan: # muyan数据库连接配置
-      type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+      type: com.alibaba.druid.pool.xa.DruidXADataSource    # 配置当前要使用的数据源的操作类型
       driver-class-name: com.mysql.cj.jdbc.Driver    # 配置MySQL的驱动程序类
       url: jdbc:mysql://localhost:3306/muyan    # 数据库连接地址
       username: root                # 数据库用户名
       password: mysqladmin            # 数据库连接密码
     yootk: # yootk数据库连接配置
-      type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+      type: com.alibaba.druid.pool.xa.DruidXADataSource    # 配置当前要使用的数据源的操作类型
       driver-class-name: com.mysql.cj.jdbc.Driver    # 配置MySQL的驱动程序类
       url: jdbc:mysql://localhost:3306/yootk    # 数据库连接地址
       username: root                # 数据库用户名

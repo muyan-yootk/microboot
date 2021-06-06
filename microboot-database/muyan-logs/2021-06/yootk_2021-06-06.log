@@ -531,3 +531,49 @@ java.sql.SQLSyntaxErrorException: Table 'muyan.emp' doesn't exist
 2021-06-06 09:37:33.726  INFO [] 11076 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
 2021-06-06 09:37:33.727  INFO [] 11076 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closing ...
 2021-06-06 09:37:33.728  INFO [] 11076 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2021-06-06 10:30:09.931  INFO [] 9800 --- [Test worker] com.yootk.test.TestMultiDruidDataSource  : Starting TestMultiDruidDataSource using Java 11.0.2 on DESKTOP-O838165 with PID 9800 (started by yootk in H:\workspace\idea\muyan_yootk\microboot\microboot-database)
+2021-06-06 10:30:09.935  INFO [] 9800 --- [Test worker] com.yootk.test.TestMultiDruidDataSource  : No active profile set, falling back to default profiles: default
+2021-06-06 10:30:11.259  INFO [] 9800 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-06 10:30:11.277  INFO [] 9800 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-06 10:30:11.290  INFO [] 9800 --- [Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-06 10:30:12.718  INFO [] 9800 --- [Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-06 10:30:13.353  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : Loaded jar:file:/H:/workspace/gradle_repository/caches/modules-2/files-2.1/com.atomikos/transactions/4.0.6/1ae19829fd88f5467f45dd1bd9713473f008ff53/transactions-4.0.6.jar!/transactions-defaults.properties
+2021-06-06 10:30:13.358  WARN [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+2021-06-06 10:30:13.368  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.oltp_max_retries = 5
+2021-06-06 10:30:13.368  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.log_base_dir = H:\workspace\idea\muyan_yootk\microboot\microboot-database\transaction-logs
+2021-06-06 10:30:13.368  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.tm_unique_name = 192.168.113.17.tm
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.default_jta_timeout = 10000
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.serial_jta_transactions = true
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.allow_subtransactions = true
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.automatic_resource_registration = true
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: java.naming.factory.initial = com.sun.jndi.rmi.registry.RegistryContextFactory
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.log_base_name = tmlog
+2021-06-06 10:30:13.369  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.oltp_retry_interval = 10000
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: java.naming.provider.url = rmi://localhost:1099
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.checkpoint_interval = 500
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.default_max_wait_time_on_shutdown = 9223372036854775807
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.client_demarcation = false
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.forget_orphaned_log_entries_delay = 86400000
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.trust_client_tm = false
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.force_shutdown_on_vm_exit = false
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.rmi_export_class = none
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.enable_logging = true
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.max_timeout = 300000
+2021-06-06 10:30:13.370  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.threaded_2pc = false
+2021-06-06 10:30:13.371  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.recovery_delay = 10000
+2021-06-06 10:30:13.371  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : USING: com.atomikos.icatch.max_actives = 50
+2021-06-06 10:30:13.371  INFO [] 9800 --- [Test worker] c.a.icatch.provider.imp.AssemblerImp     : Using default (local) logging and recovery...
+2021-06-06 10:30:13.897  INFO [] 9800 --- [Test worker] com.yootk.test.TestMultiDruidDataSource  : Started TestMultiDruidDataSource in 4.375 seconds (JVM running for 5.546)
+2021-06-06 10:30:14.322  WARN [] 9800 --- [Test worker] c.atomikos.jdbc.AbstractDataSourceBean   : AtomikosDataSoureBean 'muyan': poolSize equals default - this may cause performance problems!
+2021-06-06 10:30:14.716  INFO [] 9800 --- [Test worker] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-06-06 10:30:14.747  INFO [] 9800 --- [Test worker] c.a.d.xa.XATransactionalResource         : muyan: refreshed XAResource
+2021-06-06 10:30:14.817  WARN [] 9800 --- [Test worker] c.atomikos.jdbc.AbstractDataSourceBean   : AtomikosDataSoureBean 'yootk': poolSize equals default - this may cause performance problems!
+2021-06-06 10:30:14.961  INFO [] 9800 --- [Test worker] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2021-06-06 10:30:14.962  INFO [] 9800 --- [Test worker] c.a.d.xa.XATransactionalResource         : yootk: refreshed XAResource
+2021-06-06 10:30:15.034  INFO [] 9800 --- [SpringContextShutdownHook] c.a.icatch.imp.TransactionServiceImp     : Transaction Service: Entering shutdown (false, 9223372036854775807)...
+2021-06-06 10:30:15.067  INFO [] 9800 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-06 10:30:15.069  INFO [] 9800 --- [SpringContextShutdownHook] c.a.datasource.pool.ConnectionPool       : atomikos connection pool 'muyan': destroying pool...
+2021-06-06 10:30:15.069  WARN [] 9800 --- [SpringContextShutdownHook] c.a.datasource.pool.ConnectionPool       : atomikos connection pool 'muyan': connection is still in use on pool destroy: an AtomikosXAPooledConnection with a SessionHandleState with 1 context(s) - please check your shutdown sequence to avoid heuristic termination of ongoing transactions!
+2021-06-06 10:30:15.070  INFO [] 9800 --- [SpringContextShutdownHook] c.a.datasource.pool.ConnectionPool       : atomikos connection pool 'yootk': destroying pool...
+2021-06-06 10:30:15.070  WARN [] 9800 --- [SpringContextShutdownHook] c.a.datasource.pool.ConnectionPool       : atomikos connection pool 'yootk': connection is still in use on pool destroy: an AtomikosXAPooledConnection with a SessionHandleState with 1 context(s) - please check your shutdown sequence to avoid heuristic termination of ongoing transactions!

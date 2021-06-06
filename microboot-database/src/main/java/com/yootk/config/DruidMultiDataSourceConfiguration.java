@@ -7,15 +7,15 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class DruidMultiDataSourceConfiguration { // 自定义的Druid配置类
-    @Bean("druidMuyanDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.muyan")
+//    @Bean("druidMuyanDataSource")
+//    @ConfigurationProperties(prefix = "spring.datasource.muyan")
     public DataSource getMuyanDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
-    @Bean("druidYootkDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.yootk")
+//    @Bean("druidYootkDataSource")
+//    @ConfigurationProperties(prefix = "spring.datasource.yootk")
     public DataSource getYootkDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
