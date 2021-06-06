@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 @Aspect // 是一个切面处理类
 @Order(-100) // 让这个切面处理类的执行顺序可以高一些
 public class DataSourceAspect { // 数据源的切面处理类
-    @Before("execution(* com.yootk.action.muyan..*.*(..))") // 在每次操作之前进行切换处理
+    @Before("execution(* com.yootk.dao.muyan..*.*(..))") // 在每次操作之前进行切换处理
     public void switchMuyanDataSource() {   // 切换指定的数据源
         DynamicDataSource.setDataSource(DynamicDataSource.DataSourceNames.MUYAN_DATASOURCE); // 设置数据源的名称
         log.info("数据源切换到“MUYAN”：{}", DynamicDataSource.getDataSource()); // 日志输出
     }
-    @Before("execution(* com.yootk.action.yootk..*.*(..))") // 在每次操作之前进行切换处理
+    @Before("execution(* com.yootk.dao.yootk..*.*(..))") // 在每次操作之前进行切换处理
     public void switchYootkDataSource() {   // 切换指定的数据源
         DynamicDataSource.setDataSource(DynamicDataSource.DataSourceNames.YOOTK_DATASOURCE); // 设置数据源的名称
         log.info("数据源切换到“YOOTK”：{}", DynamicDataSource.getDataSource()); // 日志输出

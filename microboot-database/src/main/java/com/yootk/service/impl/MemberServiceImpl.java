@@ -1,4 +1,4 @@
-package com.yootk.service.impl.impl;
+package com.yootk.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Set;
 
-// @Service
+@Service
 public class MemberServiceImpl implements IMemberService {
     @Autowired
     private IMemberDAO memberDAO;

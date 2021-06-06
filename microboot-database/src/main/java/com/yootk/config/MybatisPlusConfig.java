@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import com.yootk.config.mybatis.FlagMetaObjectHandler;
 import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +17,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 
 import javax.sql.DataSource;
 
-//@Configuration
+@Configuration
 public class MybatisPlusConfig { // Mybatis拦截器配置
     private ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
     @Bean
@@ -47,6 +48,7 @@ public class MybatisPlusConfig { // Mybatis拦截器配置
         dbConfig.setLogicDeleteValue(logicDeleteValue); // 删除时的数据内容
         GlobalConfig globalConfig = new GlobalConfig(); // 定义全局配置
         globalConfig.setDbConfig(dbConfig); // 全局配置项
+        globalConfig.setMetaObjectHandler(new FlagMetaObjectHandler());
         mybatisPlus.setGlobalConfig(globalConfig);
         return mybatisPlus;
     }

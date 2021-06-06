@@ -12,7 +12,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource implements Seri
     private static final ThreadLocal<String> DATASOURCE_CONTEXT_HOLDER = new ThreadLocal<>();
     @Override
     protected Object determineCurrentLookupKey() { // 获取当前的查询结果
-        return null;
+        return getDataSource();
     }
     static interface DataSourceNames {  // 定义一个数据源的名称接口标记
         String MUYAN_DATASOURCE = "muyan"; // “muyan”数据库的标记
