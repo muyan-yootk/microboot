@@ -1,8 +1,2 @@
-spring:
-  security: # SpringSecurity的相关配置
-    user: # 用户配置
-      name: muyan # 用户名
-      password: yootk # 密码
-      roles: ADMIN, USER # 用户角色配置
 server:
   port: 80
