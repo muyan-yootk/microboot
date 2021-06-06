@@ -41,6 +41,7 @@ public class MybatisPlusConfig { // Mybatis拦截器配置
         mybatisPlus.setDataSource(dataSource); // 配置项目中要使用的数据源
         mybatisPlus.setVfs(SpringBootVFS.class); // 配置程序的扫描类
         mybatisPlus.setTypeAliasesPackage(typeAliasesPackage); // 扫描包的别名
+        mybatisPlus.setTransactionFactory(new MultiDataSourceTransactionFactory()); // 自定义事务工厂
         Resource[] mappings = this.resourcePatternResolver.getResources(mapperLocations);
         mybatisPlus.setMapperLocations(mappings);
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig(); // 数据配置

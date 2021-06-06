@@ -34,6 +34,7 @@ public class MultiDataSourceTransaction
     public Connection getConnection() throws SQLException { // 获取数据库连接
         // 存在有数据源的前提下才可以实现连接的获取，那么首先要判断是否有数据源存在
         String datasourceName = DynamicDataSource.getDataSource(); // 获取当前数据源名称
+        log.info("【MultiDataSourceTransaction.getConnection()】数据源名称：{}", datasourceName);
         if (null == datasourceName || datasourceName.equals(this.currentDatabaseName)) {    // 现在的数据源为当前使用的数据库
             if (this.currentConnection != null) {   // 当前存在有数据库连接
                 return this.currentConnection; // 返回当前的连接
@@ -53,6 +54,7 @@ public class MultiDataSourceTransaction
 
     @Override
     public void commit() throws SQLException { // 数据库事务提交
+        log.error("commit：currentConnection = {}、isConnectionTransactional = {}、autoCommit = {}", this.currentConnection, this.isConnectionTransactional, this.autoCommit);
         // 当前存在有Connection接口实例，同时没有开启自动的事务提交，并且存在有支持事务的连接
         if (this.currentConnection != null && !this.isConnectionTransactional && !this.autoCommit) {
             log.info("数据库事务提交，当前数据库连接：{}", this.currentConnection);
@@ -65,6 +67,7 @@ public class MultiDataSourceTransaction
 
     @Override
     public void rollback() throws SQLException { // 事务回滚
+        log.error("rollback：currentConnection = {}、isConnectionTransactional = {}、autoCommit = {}", this.currentConnection, this.isConnectionTransactional, this.autoCommit);
         if (this.currentConnection != null && !this.isConnectionTransactional && !this.autoCommit) {
             log.info("数据库事务回滚，当前数据库连接：{}", this.currentConnection);
             this.currentConnection.rollback(); // 回滚当前的数据库事务
