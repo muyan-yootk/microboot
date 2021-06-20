@@ -3,4 +3,5 @@ include 'microboot-common'
 include 'microboot-web'
 include 'microboot-database'
 include 'microboot-spring-security'
+include 'microboot-oauth2'
 
