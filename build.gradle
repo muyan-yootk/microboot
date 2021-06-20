@@ -131,5 +131,8 @@ project('microboot-spring-security') { // 子模块
     dependencies { // 配置子模块依赖
         compile(project(':microboot-common')) // 引入其他子模块
         compile('org.springframework.boot:spring-boot-starter-security')
+        compile(libraries.'mysql-connector-java')
+        compile(libraries.'druid-spring-boot-starter')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
     }
 }
