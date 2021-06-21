@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
-@RestController
+@RestController // Rest数据响应
 public class ResourceAction {
-    @RequestMapping("/resource") // 资源路径
-    public Principal resource(Principal principal) {
-        return principal; // 保存了用户的全部配置信息
+    @RequestMapping("/resource")
+    public Principal resource(Principal user) {
+        return user; // 获取用户详情
     }
 }

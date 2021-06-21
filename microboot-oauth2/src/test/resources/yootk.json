@@ -1,0 +1,115 @@
+{
+  "authorities": [
+    {
+      "rid": "ROLE_ADMIN",
+      "title": "管理员",
+      "authority": "ROLE_ADMIN"
+    },
+    {
+      "rid": "ROLE_USER",
+      "title": "用户",
+      "authority": "ROLE_USER"
+    }
+  ],
+  "details": {
+    "remoteAddress": "0:0:0:0:0:0:0:1",
+    "sessionId": "BA5F886D4FAFD68F5E2149271B4858BA",
+    "tokenValue": "aAujsZhcgGK_Zz0WcgAzVNqhE00",
+    "tokenType": "Bearer",
+    "decodedDetails": null
+  },
+  "authenticated": true,
+  "userAuthentication": {
+    "authorities": [
+      {
+        "rid": "ROLE_ADMIN",
+        "title": "管理员",
+        "authority": "ROLE_ADMIN"
+      },
+      {
+        "rid": "ROLE_USER",
+        "title": "用户",
+        "authority": "ROLE_USER"
+      }
+    ],
+    "details": {
+      "remoteAddress": "127.0.0.1",
+      "sessionId": "86E18DABF59252121B304516B3B5DB29"
+    },
+    "authenticated": true,
+    "principal": {
+      "mid": "admin",
+      "name": "李兴华",
+      "password": "{bcrypt}$2a$10$Y.RJM5dmfKJHTen2HMSPSu0U5KMAMB5Mq4bbvdaZMZ4BBHriVYPYO",
+      "enabled": 1,
+      "username": "admin",
+      "accountNonLocked": true,
+      "authorities": [
+        {
+          "rid": "ROLE_ADMIN",
+          "title": "管理员",
+          "authority": "ROLE_ADMIN"
+        },
+        {
+          "rid": "ROLE_USER",
+          "title": "用户",
+          "authority": "ROLE_USER"
+        }
+      ],
+      "accountNonExpired": true,
+      "credentialsNonExpired": true
+    },
+    "credentials": null,
+    "name": "admin"
+  },
+  "principal": {
+    "mid": "admin",
+    "name": "李兴华",
+    "password": "{bcrypt}$2a$10$Y.RJM5dmfKJHTen2HMSPSu0U5KMAMB5Mq4bbvdaZMZ4BBHriVYPYO",
+    "enabled": 1,
+    "username": "admin",
+    "accountNonLocked": true,
+    "authorities": [
+      {
+        "rid": "ROLE_ADMIN",
+        "title": "管理员",
+        "authority": "ROLE_ADMIN"
+      },
+      {
+        "rid": "ROLE_USER",
+        "title": "用户",
+        "authority": "ROLE_USER"
+      }
+    ],
+    "accountNonExpired": true,
+    "credentialsNonExpired": true
+  },
+  "oauth2Request": {
+    "clientId": "client_muyan",
+    "scope": [
+      "webapp"
+    ],
+    "requestParameters": {
+      "code": "kHiQSg",
+      "grant_type": "authorization_code",
+      "response_type": "code",
+      "redirect_uri": "https://www.yootk.com",
+      "client_secret": "hello",
+      "client_id": "client_muyan"
+    },
+    "resourceIds": [],
+    "authorities": [],
+    "approved": true,
+    "refresh": false,
+    "redirectUri": "https://www.yootk.com",
+    "responseTypes": [
+      "code"
+    ],
+    "extensions": {},
+    "refreshTokenRequest": null,
+    "grantType": "authorization_code"
+  },
+  "credentials": "",
+  "clientOnly": false,
+  "name": "admin"
+}

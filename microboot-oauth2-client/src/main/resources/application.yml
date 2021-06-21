@@ -1,0 +1,16 @@
+security: # SpringSecurity配置
+  oauth2: # OAuth2配置
+    client: # 客户端配置
+      client-id: client_happy # Client注册ID
+      client-secret: hello # Client注册密钥
+      user-authorization-uri: http://oauth-server/oauth/authorize # authcode获取地址
+      access-token-uri: http://oauth-server/oauth/token # token获取地址
+      authentication-scheme: query # 认证模式
+      client-authentication-scheme: form # Client认证模式
+      scope: webapp # 应用范围
+      authorized-grant-types: code # 授权类型
+      registered-redirect-uri: http://oauth-client:8888/login # 返回地址
+    resource:
+      user-info-uri: http://oauth-server/resource # 资源地址
+server: # 服务端配置
+  port: 8888 # 监听端口

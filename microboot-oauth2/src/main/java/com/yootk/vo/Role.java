@@ -4,22 +4,20 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
 @Table
-public class Role implements GrantedAuthority {// 保存授权信息
+public class Role implements GrantedAuthority {
     @Id
-    private String rid; // 保存角色ID（一般都是字符串）
-    private String title; // 保存角色的名称（仅仅是为了一些标注）
-    @ManyToMany(mappedBy = "roles") // Member类中的属性
-    @JsonBackReference // 防止Jacks组件在输出的时候进行递归调用
-    private List<Member> members; // 必须按照此类方式进行设置
+    private String rid; // 角色ID
+    private String title; // 角色名称
+    @ManyToMany(mappedBy = "roles")		// 多对多关联
+    @JsonBackReference // Jackson防止数据递归处理
+    private List<Member> members;
+    // 其他重复操作方法，略…
     @Override
     public String getAuthority() {
         return this.rid;

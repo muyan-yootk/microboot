@@ -149,3 +149,11 @@ project('microboot-oauth2') { // 子模块
         compile(libraries.'spring-security-oauth2-autoconfigure')
     }
 }
+project('microboot-oauth2-client') { // 子模块
+    dependencies { // 配置子模块依赖
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-security')
+        compile('org.springframework.security.oauth.boot:' +
+                'spring-security-oauth2-autoconfigure:2.4.3') // OAuth2依赖
+    }
+}

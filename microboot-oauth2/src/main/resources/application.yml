@@ -1,26 +1,28 @@
-server:
-  port: 80
+server: # 服务配置
+  port: 80 # 配置服务监听端口
+
 spring:
-  redis:
-    host: redis-single # 在hosts主机中配置的路径
-    port: 6379
-    password: hello
-    database: 0 # 默认也是从0索引开始的
-    timeout: 200ms # 连接超时
-    lettuce:
-      pool:
-        max-active: 1000 # 最大连接数
-        max-idle: 20 # 最大的空闲维持连接
-        min-idle: 10 # 最小的空闲连接
-        time-between-eviction-runs: 2000 # 每2秒回收一次
+  redis: # Redis相关配置
+    host: redis.yootk.com # Redis服务器地址
+    port: 6379 # Redis服务器连接端口
+    password: hello # Redis服务器连接密码
+    database: 0 # Redis数据库索引
+    timeout: 200ms # 连接超时时间，不能设置为0
+    lettuce: # 配置Lettuce
+      pool: # 配置连接池
+        max-active: 100 # 连接池最大连接数
+        max-idle: 29 # 连接池中的最大空闲连接
+        min-idle: 10 # 连接池中的最小空闲连接
+        max-wait: 1000 # 连接池最大阻塞等待时间
+        time-between-eviction-runs: 2000 # 每2秒回收一次空闲连接
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springsecurity
-    username: root
-    password: mysqladmin
-  jpa:
-    show-sql: true
-    properties:
-      hibernate: # 添加JPA的属性
-        enable_lazy_load_no_trans: true # 配置延迟加载
+    type: com.alibaba.druid.pool.DruidDataSource	# 数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver	# 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/springsecurity		# 数据库连接地址
+    username: root				# 数据库用户名
+    password: mysqladmin				# 数据库连接密码
+  jpa: # SpringDataJPA配置
+    show-sql: true # 显示SQL语句
+    properties: # JPA属性
+      hibernate:
+        enable_lazy_load_no_trans: true # 延迟加载

@@ -11,53 +11,48 @@ import java.util.List;
 
 @Data
 @Entity
-@Table // 表名称与类名称相同，所以此处就简单编写注解了
-public class Member implements UserDetails { // 保存认证数据信息
+@Table
+public class Member implements UserDetails { // 用户信息
     @Id
     private String mid; // 用户ID
-    private String name; // 用户姓名
-    private String password; // 用户密码
-    private Integer enabled; // 用户是否启用（1：true、0：false）
-    @ManyToMany(targetEntity = Role.class) // 定义多对多的配置类
-    @JoinTable(
-            name = "member_role", // 定义表名称
-            joinColumns = { @JoinColumn (name = "mid") }, // 两张表依靠mid字段进行关联
-            inverseJoinColumns = { @JoinColumn (name = "rid") }
-    ) // 进行中间关联表的配置
-    @JsonBackReference // 防止Jacks组件在输出的时候进行递归调用
-    private List<Role> roles; // 保存全部的角色
+    private String name; // 用户名
+    private String password; // 密码
+    private Integer enabled; // 启用状态
+    @ManyToMany(targetEntity = Role.class)					// 启用延迟加载
+    @JoinTable(											// 描述的是一个关联表
+            name="member_role" ,								// 定义中间表名称
+            joinColumns = { @JoinColumn(name = "mid") }	,	// member与member_role表的连接
+            inverseJoinColumns = { @JoinColumn(name = "rid") }) // 通过Member找到Role中的rid的数据
+    @JsonBackReference // Jackson防止数据递归处理
+    private List<Role> roles; // 角色列表
+    // 其他重复操作方法，略…
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles; // 返回全部的授权数据
+        return this.roles; // 获取全部角色
     }
 
     @Override
-    public String getPassword() {
-        return this.password;
+    public String getUsername() { // 返回用户名
+        return this.mid;
     }
 
     @Override
-    public String getUsername() { // SpringSecurity提供的用户名
-        return this.mid; // 本次是通过mid的属性保存用户ID
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
+    public boolean isAccountNonExpired() { // 账户是否过期
         return true;
     }
 
     @Override
-    public boolean isAccountNonLocked() {
+    public boolean isAccountNonLocked() { // 账户是否锁定
         return true;
     }
 
     @Override
-    public boolean isCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired() { // 认证是否失效
         return true;
     }
 
     @Override
-    public boolean isEnabled() {
-        return this.enabled == 1;
+    public boolean isEnabled() { // 启用状态
+        return this.enabled.equals(1);
     }
 }
