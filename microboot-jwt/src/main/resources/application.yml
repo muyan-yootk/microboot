@@ -7,4 +7,4 @@ muyan: # 自定义配置项
       sign: muyan # JWT证书签名
       issuer: MuyanYootk # 证书签发人
       secret: www.yootk.com # 加密密钥
-      expire: 10 # 有效时间（单位：秒）
+      expire: 10000 # 有效时间（单位：秒）
