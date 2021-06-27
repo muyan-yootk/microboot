@@ -5,4 +5,5 @@ include 'microboot-database'
 include 'microboot-spring-security'
 include 'microboot-oauth2'
 include 'microboot-oauth2-client'
+include 'microboot-jwt'
 
