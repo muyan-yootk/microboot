@@ -1,2 +1,4 @@
 server:
   port: 80
+shiro:
+  userNativeSessionManager: true # 允许采用非HTTP的模式进行访问
