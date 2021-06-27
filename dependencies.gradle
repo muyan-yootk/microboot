@@ -23,6 +23,7 @@ ext.versions = [    // 定义所有要使用的版本号
         springSecurityOAuth2                : '2.4.3', // OAuth2版本
         jjwt                                : '0.9.1', // JWT依赖库
         jaxb                                : '2.3.1', // JAXB依赖库
+        shiro                               : '1.7.1', // Shiro版本编号
 ]
 ext.libraries = [   // 定义所有的依赖库
         // 以下的配置为SpringBoot项目所需要的核心依赖
@@ -73,5 +74,7 @@ ext.libraries = [   // 定义所有的依赖库
         'spring-security-oauth2-autoconfigure' : "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:${versions.springSecurityOAuth2}",
         // 以下的配置为JWT所需要的依赖库
         'jjwt': "io.jsonwebtoken:jjwt:${versions.jjwt}",
-        'jaxb-api': "javax.xml.bind:jaxb-api:${versions.jaxb}"
+        'jaxb-api': "javax.xml.bind:jaxb-api:${versions.jaxb}",
+        // 以下的配置为Shiro所需要的依赖库
+        'shiro-spring-boot-web-starter': "org.apache.shiro:shiro-spring-boot-web-starter:${versions.shiro}"
 ]

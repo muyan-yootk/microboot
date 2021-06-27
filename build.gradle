@@ -126,42 +126,9 @@ project('microboot-database') { // 子模块
         compile('org.springframework.boot:spring-boot-starter-jta-atomikos')
     }
 }
-
-project('microboot-spring-security') { // 子模块
+project('microboot-shiro') { // 子模块
     dependencies { // 配置子模块依赖
-        compile(project(':microboot-common')) // 引入其他子模块
-        compile('org.springframework.boot:spring-boot-starter-security')
-        compile(libraries.'mysql-connector-java')
-        compile(libraries.'druid-spring-boot-starter')
-        compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    }
-}
-
-project('microboot-oauth2') { // 子模块
-    dependencies { // 配置子模块依赖
-        compile(project(':microboot-common')) // 引入其他子模块
-        compile('org.springframework.boot:spring-boot-starter-security')
-        compile(libraries.'mysql-connector-java')
-        compile(libraries.'druid-spring-boot-starter')
-        compile(libraries.'commons-pool2')
-        compile(libraries.'spring-boot-starter-data-redis')
-        compile('org.springframework.boot:spring-boot-starter-data-jpa')
-        compile(libraries.'spring-security-oauth2-autoconfigure')
-    }
-}
-project('microboot-oauth2-client') { // 子模块
-    dependencies { // 配置子模块依赖
-        compile('org.springframework.boot:spring-boot-starter-web')
-        compile('org.springframework.boot:spring-boot-starter-security')
-        compile('org.springframework.security.oauth.boot:' +
-                'spring-security-oauth2-autoconfigure:2.4.3') // OAuth2依赖
-    }
-}
-project('microboot-jwt') { // 子模块
-    dependencies { // 配置子模块依赖
-        compile('org.springframework.boot:spring-boot-starter-web')
-        compile(libraries.'fastjson')
-        compile(libraries.'jjwt')
-        compile(libraries.'jaxb-api')
+        compile('org.springframework.boot:spring-boot-starter-web')// 引入SpringBoot依赖
+        compile(libraries.'shiro-spring-boot-web-starter')// 引入Shiro依赖
     }
 }
